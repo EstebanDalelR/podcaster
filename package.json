@@ -20,5 +20,15 @@
   "bugs": {
     "url": "https://github.com/EstebanDalelR/podcaster/issues"
   },
-  "homepage": "https://github.com/EstebanDalelR/podcaster#readme"
+  "homepage": "https://github.com/EstebanDalelR/podcaster#readme",
+  "dependencies": {
+    "next": "^9.1.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.14",
+    "@types/react": "^16.9.13",
+    "typescript": "^3.7.2"
+  }
 }
