@@ -1,0 +1,24 @@
+{
+  "name": "podcaster",
+  "version": "1.0.0",
+  "description": "A podcast planner",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EstebanDalelR/podcaster.git"
+  },
+  "keywords": [
+    "podcast",
+    "react",
+    "next"
+  ],
+  "author": "Esteban Dalel R",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EstebanDalelR/podcaster/issues"
+  },
+  "homepage": "https://github.com/EstebanDalelR/podcaster#readme"
+}
