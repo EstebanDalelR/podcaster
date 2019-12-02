@@ -4,7 +4,10 @@
   "description": "A podcast planner",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest",
+    "test:watch": "jest — watch",
+    "test:coverage": "jest — coverage",
+    "dev": "next"
   },
   "repository": {
     "type": "git",
@@ -27,8 +30,27 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^6.10.1",
+    "@testing-library/react": "^9.3.2",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.12.14",
     "@types/react": "^16.9.13",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   }
 }
