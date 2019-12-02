@@ -20,5 +20,11 @@ describe('Pages', () => {
         });
       })
   })
-
+  describe('Index', () => {
+    it('should have a button allowing the user to save the Podcast',
+      () => {
+        const wrap = mount(<CreatePage />);
+        expect(wrap.find('button').text()).toBe('Save')
+      })
+  })
 })
