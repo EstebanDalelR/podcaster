@@ -1,4 +1,12 @@
-const Field = ({ title, description, name, fieldValue, handleChange }) => {
+import * as React from "react";
+interface Props {
+  title: string,
+  description: string,
+  name: string,
+  fieldValue: string,
+  handleChange: (event: any) => void
+}
+const Field = ({ title, description, name, fieldValue, handleChange }: Props) => {
   return (
     <div className={name}>
       <h3>{title}</h3>

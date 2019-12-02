@@ -1,15 +1,18 @@
-import { useState } from "react";
+import * as React from "react";
 
 import Field from "./createFormField"
-
-const Fields = ({ fieldTexts }) => {
+interface Props {
+  fieldTexts: Array<{name, title, description}>,
+  savedFields?: object
+}
+const Fields = ({fieldTexts}:Props) => {
   // must be a controlled field so we must pass a "" to each input
   let initialFields = {}
   for (let index = 0; index < fieldTexts.length; index++) {
     const element = fieldTexts[index];
     initialFields[element.name] = ""
   }
-  let [fields, setFields] = useState(initialFields)
+  let [fields, setFields] = React.useState(initialFields)
 
   let handleChange = (event) => {
     let newFields = { ...fields }
