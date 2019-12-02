@@ -19,7 +19,7 @@ const Create = () => {
       value:"",
       name: "description",
       title: "Description",
-      description: "elp the listener know what this episode is about. Keep it short and simple."
+      description: "Help the listener know what this episode is about. Keep it short and simple."
     },
     {
       value:"",
@@ -52,6 +52,8 @@ const Create = () => {
   return (
     <>
       <h1>Create a Podcast</h1>
+      <p>Don't worry, we save all fields <em>locally</em>, so you may come back to this page at any time.</p>
+      <p>When you're ready, press save at the bottom to save it!</p>
       <Fields fieldTexts={fieldTexts} savedFields={savedFields} />
       <SaveButton />
     </>
