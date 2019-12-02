@@ -45,8 +45,20 @@ const Create = () => {
     savedFields = window.localStorage.getItem("podcasterCreateFields")
   }
   let SaveButton = () => {
-    return (
+    return (<>
+      <style jsx>{`
+      button{
+        color: white;
+        background-color:#0027FF;
+        border-radius: 10px;
+        border: none;
+        padding-block: 1%;
+        padding-inline: 2%;
+      }
+      `}
+      </style>
       <button>Save</button>
+    </>
     )
   }
   return (
