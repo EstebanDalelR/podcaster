@@ -10,24 +10,15 @@ describe('Pages', () => {
       })
   })
   describe('Create', () => {
-    it('should ask the user for Podcast title',
+    it('should ask the user for Podcast title, links, description, guests, sponsors, and script',
       () => {
         const wrap = mount(<CreatePage />);
-        expect(wrap.find('h3').text()).toBe('Title')
+        let titles = wrap.find('h3')
+        let titleTexts = ["Title", "Link(s)", "Description", "Guests", "Sponsors", "Script"]
+        titles.forEach((element,index) => {
+          expect(element.text()).toBe(titleTexts[index])
+        });
       })
   })
-  describe('Create', () => {
-    it('should ask the user for Podcast links',
-      () => {
-        const wrap = mount(<CreatePage />);
-        expect(wrap.find('h3').text()).toBe('Link(s)')
-      })
-  })
-  describe('Create', () => {
-    it('should ask the user for Podcast description',
-      () => {
-        const wrap = mount(<CreatePage />);
-        expect(wrap.find('h3').text()).toBe('Description')
-      })
-  })
+
 })
