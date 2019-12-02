@@ -3,6 +3,7 @@ import { useState } from "react";
 import Field from "./createFormField"
 
 const Fields = ({ fieldTexts }) => {
+  // must be a controlled field so we must pass a "" to each input
   let initialFields = {}
   for (let index = 0; index < fieldTexts.length; index++) {
     const element = fieldTexts[index];

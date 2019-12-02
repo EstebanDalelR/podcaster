@@ -1,6 +1,7 @@
 import * as React from "react";
 import Fields from "../components/createFormFieldList"
 const Create = () => {
+  // this will eventually come from DB or external file
   let fieldTexts = [
     {
       value:"",
