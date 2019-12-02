@@ -40,7 +40,10 @@ const Create = () => {
       description: "Finally, time to know what you'll say. Keep an eye on how long it will take, and your pace should be around 130 words per minute."
     },
   ]
-
+  let savedFields
+  if (typeof window !== 'undefined') {
+    savedFields = window.localStorage.getItem("podcasterCreateFields")
+  }
   let SaveButton = () => {
     return (
       <button>Save</button>
@@ -49,7 +52,7 @@ const Create = () => {
   return (
     <>
       <h1>Create a Podcast</h1>
-      <Fields fieldTexts={fieldTexts} />
+      <Fields fieldTexts={fieldTexts} savedFields={savedFields} />
       <SaveButton />
     </>
   )
