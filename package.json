@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/EstebanDalelR/podcaster#readme",
   "dependencies": {
+    "airtable": "^0.8.1",
+    "dotenv": "^8.2.0",
     "next": "^9.1.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
