@@ -17,8 +17,8 @@ const Create = () => {
     },
     {
       value:"",
-      name: "description",
-      title: "Description",
+      name: "summary",
+      title: "Summary",
       description: "Help the listener know what this episode is about. Keep it short and simple."
     },
     {
@@ -44,30 +44,13 @@ const Create = () => {
   if (typeof window !== 'undefined') {
     savedFields = window.localStorage.getItem("podcasterCreateFields")
   }
-  let SaveButton = () => {
-    return (<>
-      <style jsx>{`
-      button{
-        color: white;
-        background-color:#0027FF;
-        border-radius: 10px;
-        border: none;
-        padding-block: 1%;
-        padding-inline: 2%;
-      }
-      `}
-      </style>
-      <button>Save</button>
-    </>
-    )
-  }
+
   return (
     <>
       <h1>Create a Podcast</h1>
       <p>Don't worry, we save all fields <em>locally</em>, so you may come back to this page at any time.</p>
       <p>When you're ready, press save at the bottom to save it!</p>
       <Fields fieldTexts={fieldTexts} savedFields={savedFields} />
-      <SaveButton />
     </>
   )
 }
