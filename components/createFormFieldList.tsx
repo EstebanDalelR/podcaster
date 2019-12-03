@@ -79,7 +79,7 @@ const Fields = ({ fieldTexts, savedFields }: Props) => {
         }
       }
       let resp = await fetch(
-        "/api/postPodcast",
+        "/api/createPodcast",
         {
           method: 'POST',
           headers: {
