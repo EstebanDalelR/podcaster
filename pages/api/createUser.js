@@ -3,10 +3,10 @@ import { throws } from 'assert'
 import jwt from 'jsonwebtoken'
 
 export default (req, res) => {
-   const table = base('Users')
+  const table = base('Users')
   console.log(req.body)
   try {
-    table.create([req.body], function(err, records) {
+    table.create([req.body], function (err, records) {
       if (err) {
         console.log(err)
         throws(err);
@@ -14,13 +14,13 @@ export default (req, res) => {
       }
       let token = jwt.sign(
         {
-        email: records[0].fields.Email,
-        id: records[0].id
-      },
-      process.env.JWT_SIGNING_SECRET
+          email: records[0].fields.Email,
+          id: records[0].id
+        },
+        process.env.JWT_SIGNING_SECRET
       )
 
-      res.send(token)
+      res.send({ podcasterUserJWT: token })
     });
   } catch (error) {
     res.setHeader('Content-Type', 'application/json')

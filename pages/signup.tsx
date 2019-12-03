@@ -9,7 +9,7 @@ const Signup = () => {
 
     let data = {
       "fields": {
-        "Mail": email,
+        "Email": email,
         "Password": password
       }
     }
@@ -23,8 +23,11 @@ const Signup = () => {
         body: JSON.stringify(data)
       }
     )
+    const myJson = await resp.json()
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem("podcasterUserJWT", JSON.stringify(myJson.podcasterUserJWT))
+    }
     return true
-
   }
   return (
     <>
@@ -49,7 +52,7 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div>
-            <button type="submit">Create</button>
+          <button type="submit">Create</button>
         </div>
       </form>
     </>
