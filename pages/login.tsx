@@ -1,11 +1,14 @@
 import * as React from "react";
 import Link from "next/link"
 import Router from 'next/router'
+import useUserJWT from "../hooks/useUserJWT"
+
 const Signup = () => {
   let [email, setEmail] = React.useState("")
   let [password, setPassword] = React.useState("")
   let [errorField, setErrorField] = React.useState("")
-
+  let userJWT = useUserJWT()
+  if(userJWT) Router.push("/create")
   async function sendUser(e) {
     e.preventDefault()
 
