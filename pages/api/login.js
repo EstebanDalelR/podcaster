@@ -9,7 +9,7 @@ export default (req, res) => {
     table.select(
       {
         maxRecords: 1,
-        filterByFormula: "(" + "Email" + "='" + req.body.email.toString() + "')",
+        filterByFormula: "(" + "Email" + "='" + req.body.Email.toString() + "')",
         fields: ["Email", "Password"]
       }
     ).eachPage(
@@ -17,7 +17,7 @@ export default (req, res) => {
         if (records.length === 0) {
           res.send({ error: "User not found" })
         }
-        if (records[0].fields.Password === req.body.password) {
+        if (records[0].fields.Password === req.body.Password) {
 
           let token = jwt.sign(
             {
