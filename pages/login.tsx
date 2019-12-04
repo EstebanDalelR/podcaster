@@ -4,6 +4,7 @@ import Router from 'next/router'
 const Signup = () => {
   let [email, setEmail] = React.useState("")
   let [password, setPassword] = React.useState("")
+  let [errorField, setErrorField] = React.useState("")
 
   async function sendUser(e) {
     e.preventDefault()
@@ -23,17 +24,37 @@ const Signup = () => {
       }
     )
     const myJson = await resp.json()
-    if (typeof window !== 'undefined') {
-      window.localStorage.setItem("podcasterUserJWT", JSON.stringify(myJson.podcasterUserJWT))
-      Router.push('/create')
+    if (myJson.error) {
+      switch (myJson.errorCode) {
+        case 0:
+          setErrorField("Email")
+          break;
+        case 1:
+          setErrorField("Password")
+          break;
+        default:
+          break;
+      }
+    } else {
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem("podcasterUserJWT", JSON.stringify(myJson.podcasterUserJWT))
+        Router.push('/create')
+      }
     }
     return true
   }
   return (
     <>
+      <style jsx>{`
+      .error{
+        border-color: red;
+      }
+      `}
+      </style>
       <h1>Login to Podcaster</h1>
       <form onSubmit={sendUser}>
         <input
+          className={`${errorField === "Email" ? "error" : null}`}
           type="text"
           name={"email"}
           value={email}
@@ -41,6 +62,7 @@ const Signup = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className={`${errorField === "Password" ? "error" : null}`}
           type="password"
           name={"password"}
           placeholder={"Your super secure password"}

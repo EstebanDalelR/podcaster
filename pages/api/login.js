@@ -15,7 +15,7 @@ export default (req, res) => {
     ).eachPage(
       function page(records, fetchNextPage) {
         if (records.length === 0) {
-          res.send({ error: "User not found" })
+          res.send({ error: "User not found", errorCode: 0 })
         }
         if (records[0].fields.Password === req.body.Password) {
 
@@ -28,7 +28,7 @@ export default (req, res) => {
           )
           res.send({ podcasterUserJWT: token })
         } else {
-          res.send({ error: "Wrong password" })
+          res.send({ error: "Wrong password", errorCode: 1 })
         }
         fetchNextPage();
       }, function done(err) {
