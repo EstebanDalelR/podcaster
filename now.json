@@ -1,0 +1,8 @@
+{
+  "env": {
+    "AIRTABLE_API_KEY": "@airtable-api-key",
+    "AIRTABLE_BASE_ID": "@airtable-base-id",
+    "JWT_SIGNING_SECRET": "@jwt-signing-secret"
+  }
+}
+
