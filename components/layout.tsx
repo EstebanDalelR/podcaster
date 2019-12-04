@@ -1,6 +1,5 @@
 export default function Layout (props) {
   const { children } = props
-  console.log(children)
   return(
     <div className="background">
       <style global jsx>{`

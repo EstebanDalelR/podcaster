@@ -1,6 +1,8 @@
 import * as React from "react";
 import Link from "next/link"
+import useUserJWT from "../hooks/useUserJWT"
 const Index = () => {
+  let userJWT = useUserJWT()
   return (
     <>
       <h1>Welcome to Podcaster</h1>
@@ -17,9 +19,14 @@ const Index = () => {
         <li>Write your script, and know how long it takes to read</li>
       </ul>
       <h2>Start now</h2>
-      <Link href="/create">
-        <button>Create</button>
-      </Link>
+      {userJWT
+        ? <Link href="/create">
+          <button>Create Podcast</button>
+        </Link>
+        : <Link href="/signup">
+          <button>Create Account</button>
+        </Link>
+      }
     </>
   )
 }
