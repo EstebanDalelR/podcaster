@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link"
+import Router from 'next/router'
 const Signup = () => {
   let [email, setEmail] = React.useState("")
   let [password, setPassword] = React.useState("")
@@ -24,6 +25,7 @@ const Signup = () => {
     const myJson = await resp.json()
     if (typeof window !== 'undefined') {
       window.localStorage.setItem("podcasterUserJWT", JSON.stringify(myJson.podcasterUserJWT))
+      Router.push('/create')
     }
     return true
   }
