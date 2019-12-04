@@ -52,6 +52,11 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div>
+          <Link href="/login">
+            <a>Or maybe you already have an account?</a>
+          </Link>
+        </div>
+        <div>
           <button type="submit">Create</button>
         </div>
       </form>
