@@ -60,6 +60,7 @@ const Signup = () => {
           value={email}
           placeholder={"Your registered mail"}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           className={`${errorField === "Password" ? "error" : null}`}
@@ -68,6 +69,7 @@ const Signup = () => {
           placeholder={"Your super secure password"}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <div>
           <button type="submit">Login</button>
