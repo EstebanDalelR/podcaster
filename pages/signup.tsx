@@ -41,6 +41,7 @@ const Signup = () => {
           name={"email"}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <p>
           Do we need to tell you to create a secure password?
@@ -50,6 +51,7 @@ const Signup = () => {
           name={"password"}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <div>
           <Link href="/login">
