@@ -20,7 +20,7 @@ export default (req, res) => {
     table.create([sendObject], function (err, records) {
       if (err) {
         console.log(err)
-        /* throws(err); */
+        throws(err);
         return;
       }
       res.send(records)
@@ -29,6 +29,6 @@ export default (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     res.statusCode = 400
     console.log(error)
-/*     throws(error);
- */  }
+    throws(error);
+  }
 }
