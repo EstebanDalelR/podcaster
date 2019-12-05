@@ -80,7 +80,13 @@ const Fields = ({ fieldTexts, savedFields, userJWT }: Props) => {
           body: JSON.stringify(data)
         }
       )
-      return true
+      if (typeof window !== 'undefined') {
+        if (localStorage) {
+            localStorage.removeItem("podcasterCreateFields")
+            setFields({ title: "", links: "", summary: "", guests: "", sponsors: "", script: "" })
+            router.push("/podcasts")
+        }
+      }
     } else {
       router.push("/create")
     }
