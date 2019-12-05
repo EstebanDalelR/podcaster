@@ -1,10 +1,11 @@
 import * as React from "react";
 import Link from "next/link"
-import useRoutePush from "../hooks/useRoutePush"
+import { useRouter } from 'next/router'
 import useUserJWT from "../hooks/useUserJWT"
 
 const Signup = () => {
   let userJWT = useUserJWT()
+  const router = useRouter()
   let [password, setPassword] = React.useState("")
   let [email, setEmail] = React.useState("")
   let [errorField, setErrorField] = React.useState("")
@@ -39,8 +40,8 @@ const Signup = () => {
       }
     } else {
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem("podcasterUserJWT", JSON.stringify(myJson.podcasterUserJWT))
-        useRoutePush('/create')
+        window.localStorage.setItem("podcasterUserJWT", myJson.podcasterUserJWT)
+       router.push('/create')
       }
     }
     return true
