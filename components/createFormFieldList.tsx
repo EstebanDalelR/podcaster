@@ -6,12 +6,13 @@ interface Props {
   savedFields?: string
 }
 const Fields = ({ fieldTexts, savedFields }: Props) => {
+
+
   // must be a controlled field so we must pass a "" to each input
   let initialFields ={title:"", links:"", summary:"", guests:"", sponsors:"", script:""}
   if (savedFields) {
     initialFields = JSON.parse(savedFields)
   } else {
-    console.log(initialFields)
     for (let index = 0; index < fieldTexts.length; index++) {
       const element = fieldTexts[index];
       initialFields[element.name] = ""
@@ -51,17 +52,6 @@ const Fields = ({ fieldTexts, savedFields }: Props) => {
       <button type="submit">Save</button>
     </>
     )
-  }
-  let checkLogged = () => {
-    if (typeof window !== 'undefined') {
-      if (localStorage) {
-        return localStorage.getItem("userId")
-      }
-    }
-    /* Candidate for JS Optional Chaining, but experimental
-        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
-    */
-    return false
   }
   
   async function sendPodcast(e) {
