@@ -10,7 +10,7 @@ export default function Layout (props) {
       <style jsx>{`
         .background{
           background-color: whitesmoke;
-          height: 100vh;
+          height: 100%;
           width: 100%;
         }
       `}</style>
