@@ -1,5 +1,6 @@
 import * as React from "react";
 import useUserJWT from "../hooks/useUserJWT"
+import Podcast from "../components/podcast";
 export default function Podcasts() {
   let userJWT = useUserJWT()
   let [podcasts, setPodcasts] = React.useState([])
@@ -27,7 +28,7 @@ export default function Podcasts() {
   return (
     <>
       <h1>Your podcasts</h1>
-      {podcasts.length}
+      {podcasts.map((podcast, index)=><Podcast {...podcast} key={index}/>)}
     </>
   )
 }
