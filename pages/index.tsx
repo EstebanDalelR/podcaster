@@ -5,6 +5,16 @@ const Index = () => {
   let userJWT = useUserJWT()
   return (
     <>
+      <style jsx>{`
+        h1, h2, h3, h4, h5{
+          text-shadow: 1px 1px 2px white;
+          font-family: 'Copse', sans-serif;
+        }
+        p, ul{
+          text-shadow: 1px 1px 2px white;
+          font-family: "Rubik";
+        }
+      `}</style>
       <h1>Welcome to Podcaster</h1>
       <p>
         Congrats on deciding to share your knowledge and opinions to the world.

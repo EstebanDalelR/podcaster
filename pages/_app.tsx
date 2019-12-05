@@ -17,8 +17,24 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props
     return (
       <Layout>
+              <style global jsx>{`
+         @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+         @import url('https://fonts.googleapis.com/css?family=Copse&display=swap');
+
+        html, body{
+          margin: 0px;
+        }
+        h1, h2, h3, h4, h5{
+          text-shadow: 1px 1px 2px white;
+          font-family: 'Copse', sans-serif;
+        }
+        p, ul, button{
+          text-shadow: 1px 1px 2px white;
+          font-family: "Rubik";
+        }
+      `}</style>
         <Head>
-          <title>🎤odcaster</title>
+          <title>Podcaster🎤</title>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         </Head>
