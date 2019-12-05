@@ -54,7 +54,7 @@ const Create = () => {
       <h1>Create a Podcast</h1>
       <p>Don't worry, we save all fields <em>locally</em>, so you may come back to this page at any time.</p>
       <p>When you're ready, press save at the bottom to save it!</p>
-      <Fields fieldTexts={fieldTexts} savedFields={savedFields} />
+      <Fields fieldTexts={fieldTexts} savedFields={savedFields} userJWT={userJWT} />
     </>
   )
 }
