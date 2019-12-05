@@ -5,7 +5,6 @@ import useUserJWT from "../hooks/useUserJWT"
 
 const Create = () => {
   let userJWT = useUserJWT()
-  if(userJWT=== null) useRoutePush("/signup")
   // this will eventually come from DB or external file
   let fieldTexts = [
     {

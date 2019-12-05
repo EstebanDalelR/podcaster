@@ -5,7 +5,6 @@ import useUserJWT from "../hooks/useUserJWT"
 
 const Signup = () => {
   let userJWT = useUserJWT()
-  if(userJWT) useRoutePush("/create")
   let [password, setPassword] = React.useState("")
   let [email, setEmail] = React.useState("")
   let [errorField, setErrorField] = React.useState("")
