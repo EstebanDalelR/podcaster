@@ -1,13 +1,12 @@
 import * as React from "react";
 import Link from "next/link"
-import Router from 'next/router'
+import useRoutePush from "../hooks/useRoutePush"
 import useUserJWT from "../hooks/useUserJWT"
 
 const Signup = () => {
+  let userJWT = useUserJWT()
   let [email, setEmail] = React.useState("")
   let [password, setPassword] = React.useState("")
-  let userJWT = useUserJWT()
-  if(userJWT) Router.push("/create")
   async function sendUser(e) {
     e.preventDefault()
 
@@ -30,6 +29,7 @@ const Signup = () => {
     const myJson = await resp.json()
     if (typeof window !== 'undefined') {
       window.localStorage.setItem("podcasterUserJWT", JSON.stringify(myJson.podcasterUserJWT))
+      useRoutePush("/create")
     }
     return true
   }

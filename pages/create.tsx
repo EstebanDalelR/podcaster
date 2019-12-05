@@ -1,6 +1,10 @@
 import * as React from "react";
 import Fields from "../components/createFormFieldList"
+import useRoutePush from "../hooks/useRoutePush"
+import useUserJWT from "../hooks/useUserJWT"
+
 const Create = () => {
+  let userJWT = useUserJWT()
   // this will eventually come from DB or external file
   let fieldTexts = [
     {
