@@ -29,12 +29,20 @@ export default function Podcasts() {
   }, [userJWT])
   return (
     <>
+    <style jsx>{`
+      .podcastHolder{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }    
+    `}</style>
       <h1>Your podcasts</h1>
+      <div className="podcastHolder">
       {
         podcasts.length > 0
-          ? podcasts.map((podcast, index) => <Podcast {...podcast} key={index} />)
-          : <h3 style={{height: "100vh"}}>loading...</h3>
+        ? podcasts.map((podcast, index) => <Podcast {...podcast} key={index} />)
+        : <h3 style={{height: "100vh"}}>loading...</h3>
       }
+      </div>
     </>
   )
 }
