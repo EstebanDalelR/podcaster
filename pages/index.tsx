@@ -1,18 +1,34 @@
 import * as React from "react";
 import Link from "next/link"
 import useUserJWT from "../hooks/useUserJWT"
+import BenefitsCard from "../components/indexBenefitCard";
 const Index = () => {
   let userJWT = useUserJWT()
+  let benefits = [
+    {
+      text: "Add the links you used on your research",
+      icon: "public"
+    },
+    {
+      text: "Add your guests' social networks",
+      icon: "account_circle"
+    },
+    {
+      text: "Add any sponsors you have",
+      icon: "loyalty"
+    },
+    {
+      text: "Write your script and know how long it takes to read",
+      icon: "assignment"
+    }
+  ]
   return (
     <>
       <style jsx>{`
-        h1, h2, h3, h4, h5{
-          text-shadow: 1px 1px 2px white;
-          font-family: 'Copse', sans-serif;
-        }
-        p, ul{
-          text-shadow: 1px 1px 2px white;
-          font-family: "Rubik";
+        .benefitsHolder{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
         }
       `}</style>
       <h1>Welcome to Podcaster</h1>
@@ -22,12 +38,11 @@ const Index = () => {
       </p>
       <h2>How it works</h2>
       <p><span>Podscater</span> helps you plan your script, from your research to recording.</p>
-      <ul>
-        <li>Add the links you used on your research</li>
-        <li>Add your guests' social networks</li>
-        <li>Add any sponsors you have</li>
-        <li>Write your script, and know how long it takes to read</li>
-      </ul>
+      <div className="benefitsHolder">
+        {benefits.map((benefit, index) =>
+          <BenefitsCard text={benefit.text} icon={benefit.icon} key={index}/>
+        )}
+      </div>
       <h2>Start now</h2>
       {userJWT
         ? <Link href="/create">
