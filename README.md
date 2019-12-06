@@ -15,3 +15,6 @@ For the deployment, [Now](https://zeit.co/) was chosen, and [Airtable](https://a
 
  ## Special thanks
  [Juliana Jaime](https://github.com/PeppermintNDaisies) - Donated design ideas, and mic logo.
+ 
+ ## Caveats & WIP
+ There is currently a branch that holds the translation, but it is not properly done to ble deployed. PRs welcome!
