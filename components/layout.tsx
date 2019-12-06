@@ -11,6 +11,7 @@ export default function Layout(props) {
         }
         .container{
           padding-left: 2%;
+          padding-right: 2%;
           padding-top: 2%;
         }
       `}</style>
