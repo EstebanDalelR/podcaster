@@ -1,12 +1,19 @@
+import { Trans } from 'react-i18next';
+import i18n from "../i18n"
+import { useEffect } from 'react';
+
 export default function Layout(props) {
+  useEffect(() =>
+    console.log("i18n")
+    , [i18n.isInitialized])
   const { children } = props
   let social = {
     li: "https://www.linkedin.com/in/estebandalelr/",
     gh: "https://github.com/estebandalelr",
     tw: "https://twitter.com/estebandalelr",
-    fb: "https://facebook.com/estebandalelr" 
+    fb: "https://facebook.com/estebandalelr"
   }
-  let socialKeys= Object.keys(social)
+  let socialKeys = Object.keys(social)
   return (
     <div className="background">
       <style jsx>{`
@@ -44,18 +51,23 @@ export default function Layout(props) {
           justify-content: flex-end;
         }
         `}</style>
+        <div className="langs">
+          <p style={{margin:0}}>Viewing in {i18n.language}</p>
+        </div>
       <div className="container">
         {children}
       </div>
       <footer>
-        <p>Created by Esteban Dalel R</p>
+          <p>
+            Created by Esteban Dalel R
+          </p>
         <div className="social">
-          {socialKeys.map((key, index)=> 
-          <div key={index}>
-            <a href={social[key]}>
-              <img src={`/icons/${key}.svg`} alt="social icon"/>
-            </a>
-          </div>)}
+          {socialKeys.map((key, index) =>
+            <div key={index}>
+              <a href={social[key]}>
+                <img src={`/icons/${key}.svg`} alt="social icon" />
+              </a>
+            </div>)}
         </div>
       </footer>
     </div>
