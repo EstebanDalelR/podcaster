@@ -9,6 +9,11 @@ interface Props {
 const Field = ({ title, description, name, fieldValue, handleChange }: Props) => {
   return (
     <div className={name}>
+      <style jsx>{`
+        input{
+          height: 3em;
+        }
+      `}</style>
       <h3>{title}</h3>
       <p>{description}</p>
       <input
