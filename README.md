@@ -1,4 +1,4 @@
-# Podcaster
+![Podcaster](./public/podcaster.png)
 A podcast planner.
 Podcaster helps you plan your podcasts by adding links to your research, your guests, writing your script and saving locally so you can write later.  
 [Use it now](https://podcaster.estebandalelr1.now.sh)
