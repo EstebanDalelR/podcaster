@@ -1,11 +1,14 @@
 import * as React from "react";
 import Link from "next/link"
-import Router from 'next/router'
-const Signup = () => {
-  let [email, setEmail] = React.useState("")
-  let [password, setPassword] = React.useState("")
-  let [errorField, setErrorField] = React.useState("")
+import { useRouter } from 'next/router'
+import useUserJWT from "../hooks/useUserJWT"
 
+const Signup = () => {
+  let userJWT = useUserJWT()
+  const router = useRouter()
+  let [password, setPassword] = React.useState("")
+  let [email, setEmail] = React.useState("")
+  let [errorField, setErrorField] = React.useState("")
   async function sendUser(e) {
     e.preventDefault()
 
@@ -37,8 +40,8 @@ const Signup = () => {
       }
     } else {
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem("podcasterUserJWT", JSON.stringify(myJson.podcasterUserJWT))
-        Router.push('/create')
+        window.localStorage.setItem("podcasterUserJWT", myJson.podcasterUserJWT)
+       router.push('/create')
       }
     }
     return true
@@ -48,6 +51,24 @@ const Signup = () => {
       <style jsx>{`
       .error{
         border-color: red;
+      }
+      form {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 90%;
+      }
+      button{
+        background-color: #3549ff;
+        color: white;
+        border: none;
+        padding-inline: 2em;
+        padding-block: 1em;
+        border-radius: 4px;
+      }
+      input{
+        margin: 1%;
       }
       `}
       </style>

@@ -1,6 +1,10 @@
 import * as React from "react";
 import Fields from "../components/createFormFieldList"
+import useRoutePush from "../hooks/useRoutePush"
+import useUserJWT from "../hooks/useUserJWT"
+
 const Create = () => {
+  let userJWT = useUserJWT()
   // this will eventually come from DB or external file
   let fieldTexts = [
     {
@@ -50,7 +54,7 @@ const Create = () => {
       <h1>Create a Podcast</h1>
       <p>Don't worry, we save all fields <em>locally</em>, so you may come back to this page at any time.</p>
       <p>When you're ready, press save at the bottom to save it!</p>
-      <Fields fieldTexts={fieldTexts} savedFields={savedFields} />
+      <Fields fieldTexts={fieldTexts} savedFields={savedFields} userJWT={userJWT} />
     </>
   )
 }

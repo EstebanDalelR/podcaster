@@ -1,23 +1,25 @@
 import * as React from "react";
 
 import Field from "./createFormField"
+import { useRouter } from 'next/router'
 interface Props {
   fieldTexts: Array<{ name, title, description }>,
-  savedFields?: string
+  savedFields?: string,
+  userJWT: string
 }
-const Fields = ({ fieldTexts, savedFields }: Props) => {
+const Fields = ({ fieldTexts, savedFields, userJWT }: Props) => {
+  let router = useRouter()
   // must be a controlled field so we must pass a "" to each input
-  let initialFields ={title:"", links:"", summary:"", guests:"", sponsors:"", script:""}
+  let initialFields = { title: "", links: "", summary: "", guests: "", sponsors: "", script: "" }
   if (savedFields) {
     initialFields = JSON.parse(savedFields)
   } else {
-    console.log(initialFields)
     for (let index = 0; index < fieldTexts.length; index++) {
       const element = fieldTexts[index];
       initialFields[element.name] = ""
     }
   }
-  let [fields, setFields] = React.useState<{title, links, summary, guests, sponsors, script}>(initialFields)
+  let [fields, setFields] = React.useState<{ title, links, summary, guests, sponsors, script }>(initialFields)
 
   let handleChange = (event) => {
     let newFields = { ...fields }
@@ -30,7 +32,7 @@ const Fields = ({ fieldTexts, savedFields }: Props) => {
         const element = keys[index];
         if (index === 0) fieldsString += "{"
         fieldsString += `"${element}":"${newFields[element]}"`
-        index === keys.length-1 ? fieldsString += `}` : fieldsString += `,`
+        index === keys.length - 1 ? fieldsString += `}` : fieldsString += `,`
       }
       window.localStorage.setItem("podcasterCreateFields", fieldsString)
     }
@@ -52,22 +54,11 @@ const Fields = ({ fieldTexts, savedFields }: Props) => {
     </>
     )
   }
-  let checkLogged = () => {
-    if (typeof window !== 'undefined') {
-      if (localStorage) {
-        return localStorage.getItem("userId")
-      }
-    }
-    /* Candidate for JS Optional Chaining, but experimental
-        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
-    */
-    return false
-  }
-  
+
   async function sendPodcast(e) {
     e.preventDefault()
-    
-      let {title, links, summary, guests, sponsors, script} = fields
+    if (userJWT) {
+      let { title, links, summary, guests, sponsors, script } = fields
       let data = {
         "fields": {
           "Title": title,
@@ -76,7 +67,8 @@ const Fields = ({ fieldTexts, savedFields }: Props) => {
           "Guests": guests,
           "Sponsors": sponsors,
           "Script": script,
-        }
+        },
+        "jwt": userJWT
       }
       let resp = await fetch(
         "/api/createPodcast",
@@ -88,7 +80,16 @@ const Fields = ({ fieldTexts, savedFields }: Props) => {
           body: JSON.stringify(data)
         }
       )
-      return true
+      if (typeof window !== 'undefined') {
+        if (localStorage) {
+            localStorage.removeItem("podcasterCreateFields")
+            setFields({ title: "", links: "", summary: "", guests: "", sponsors: "", script: "" })
+            router.push("/podcasts")
+        }
+      }
+    } else {
+      router.push("/create")
+    }
 
   }
   return (
