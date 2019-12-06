@@ -52,6 +52,24 @@ const Signup = () => {
       .error{
         border-color: red;
       }
+      form {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 90%;
+      }
+      button{
+        background-color: #3549ff;
+        color: white;
+        border: none;
+        padding-inline: 2em;
+        padding-block: 1em;
+        border-radius: 4px;
+      }
+      input{
+        margin: 1%;
+      }
       `}
       </style>
       <h1>Login to Podcaster</h1>
