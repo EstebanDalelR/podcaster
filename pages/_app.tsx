@@ -42,7 +42,7 @@ export default class MyApp extends App {
           <title>Podcaster🎤</title>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <link rel="manifest" href="/manifest.json"></link>
+          <link rel="manifest" href="./manifest.json"></link>
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
           <meta name="apple-mobile-web-app-title" content="Podcaster🎤" />
