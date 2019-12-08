@@ -82,15 +82,22 @@ const Fields = ({ fieldTexts, savedFields, userJWT }: Props) => {
       )
       if (typeof window !== 'undefined') {
         if (localStorage) {
-            localStorage.removeItem("podcasterCreateFields")
-            setFields({ title: "", links: "", summary: "", guests: "", sponsors: "", script: "" })
-            router.push("/podcasts")
+          localStorage.removeItem("podcasterCreateFields")
+          setFields({ title: "", links: "", summary: "", guests: "", sponsors: "", script: "" })
+          router.push("/podcasts")
         }
       }
     } else {
       router.push("/create")
     }
 
+  }
+  let readTime = ""
+  let words = fields.script.split(" ")
+  if (words.length < 30) {
+    readTime = "less than a minute"
+  } else if (words.length * 0.5 > 60) {
+    readTime = `about ${Math.round(words.length / 120)} minute${Math.round(words.length / 120) > 1 ? "s" : ""}`
   }
   return (
     <form onSubmit={sendPodcast}>
@@ -105,6 +112,7 @@ const Fields = ({ fieldTexts, savedFields, userJWT }: Props) => {
           fieldValue={fields[name]}
         />
       })}
+      <p>According to your script, it would take {readTime} to finish reading this.</p>
       <SaveButton />
 
     </form>
