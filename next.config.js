@@ -1,8 +1,8 @@
 const webpack = require("webpack");
+const withOffline = require('next-offline')
 // Initialize doteenv library
 require("dotenv").config();
-
-module.exports = {
+const nextConfig= {
   webpack: config => {
     // Fixes npm packages that depend on `fs` module
     config.node = {
@@ -23,3 +23,4 @@ module.exports = {
     return config
   }
 }
+module.exports = withOffline(nextConfig)
