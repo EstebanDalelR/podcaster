@@ -63,7 +63,7 @@ export default function Layout(props) {
         <div className="social">
           {socialKeys.map((key, index) =>
             <div key={index}>
-              <a href={social[key]} target="_blank">
+              <a href={social[key]} target="_blank" rel="noopener noreferrer">
                 <img src={`/icons/${key}.svg`} alt="social icon" />
               </a>
             </div>)}
