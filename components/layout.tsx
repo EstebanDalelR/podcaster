@@ -30,7 +30,7 @@ export default function Layout(props) {
           width: 100%;
           background-color: #70ffe7;
           align-items: center;
-          color: darkgrey;
+          color: black;
           display: flex;
           justify-content: space-between;
         }
@@ -64,7 +64,7 @@ export default function Layout(props) {
         <div className="social">
           {socialKeys.map((key, index) =>
             <div key={index}>
-              <a href={social[key]}>
+              <a href={social[key]} target="_blank">
                 <img src={`/icons/${key}.svg`} alt="social icon" />
               </a>
             </div>)}

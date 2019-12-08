@@ -15,7 +15,7 @@ export default function BenefitsCard(props: { text, icon }) {
           text-align: center;
         }
       `}</style>
-        <img src={`/icons/${props.icon}.png`} />
+        <img src={`/icons/${props.icon}.png`} alt={props.icon} />
         <p>
           {props.text}
         </p>
