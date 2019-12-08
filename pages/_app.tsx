@@ -5,7 +5,6 @@ import Head from 'next/head'
 import "../public/locales/en/translation.json"
 import "../public/locales/es/translation.json"
 import "../public/locales/en-US/translation.json"
-import i18n from "../i18n"
 export default class MyApp extends App {
 
   static async getInitialProps({ Component, router, ctx }) {
@@ -18,7 +17,6 @@ export default class MyApp extends App {
   }
 
   render() {
-    console.log("i18n")
     const { Component, pageProps } = this.props
     return (
       <Layout>

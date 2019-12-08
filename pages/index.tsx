@@ -1,6 +1,5 @@
 import * as React from "react";
 import Link from "next/link"
-import { Trans } from 'react-i18next';
 import useUserJWT from "../hooks/useUserJWT"
 import BenefitsCard from "../components/indexBenefitCard";
 const Index = () => {
