@@ -18,3 +18,7 @@ For the deployment, [Now](https://zeit.co/) was chosen, and [Airtable](https://a
  
  ## Caveats & WIP
  There is currently a branch that holds the translation, but it is not properly done to ble deployed. PRs welcome!
+
+## External measurements
+Currently, the landing page hits 98 points on [Lighthouse](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpodcaster.estebandalelr1.now.sh%2F&tab=mobile) on Mobile.
+![Lighthouse](./public/Lighthouse.png)
