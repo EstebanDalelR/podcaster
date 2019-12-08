@@ -7,16 +7,16 @@ import "../public/locales/es/translation.json"
 import "../public/locales/en-US/translation.json"
 import i18n from "../i18n"
 export default class MyApp extends App {
-  
+
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
-    
+
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
     return { pageProps }
   }
-  
+
   render() {
     console.log("i18n")
     const { Component, pageProps } = this.props
@@ -49,6 +49,15 @@ export default class MyApp extends App {
           <link rel="apple-touch-icon" href="/podacastermicsquarebig.png"></link>
           <meta name="description" content="A Podcast planner"></meta>
           <meta name="theme-color" content="#3549ff" />
+          <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
+          <link rel="prefetch" href="/icons/gh.svg" />
+          <link rel="prefetch" href="/icons/tw.svg" />
+          <link rel="prefetch" href="/icons/fb.svg" />
+          <link rel="prefetch" href="/icons/li.svg" />
+          <link rel="prefetch" href="/icons/public.png" />
+          <link rel="prefetch" href="/icons/loyalty.png" />
+          <link rel="prefetch" href="/icons/assignment.png" />
+          <link rel="prefetch" href="/icons/account_circle.png" />
         </Head>
         <Component {...pageProps} />
       </Layout>
