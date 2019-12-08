@@ -30,9 +30,18 @@ export default function Podcasts() {
   return (
     <>
     <style jsx>{`
+    @media only screen 
+    and (max-device-width : 736px) {
       .podcastHolder{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+      }   
+      }
+    @media only screen 
+    and (min-device-width : 736px) {    
+      .podcastHolder{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }    
     `}</style>
       <h1>Your podcasts</h1>
