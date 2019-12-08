@@ -1,0 +1,20 @@
+{
+  "name": "Podcaster🎤",
+  "short_name": "Podcaster🎤",
+  "icons": [
+    {
+      "src": "/podcastermicsquare.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/podcastermicsquarebig.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#3549ff",
+  "theme_color": "#3549ff"
+}

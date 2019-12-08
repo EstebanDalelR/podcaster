@@ -17,7 +17,7 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props
     return (
       <Layout>
-              <style global jsx>{`
+        <style global jsx>{`
          @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
          @import url('https://fonts.googleapis.com/css?family=Copse&display=swap');
 
@@ -37,6 +37,13 @@ export default class MyApp extends App {
           <title>Podcaster🎤</title>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <link rel="manifest" href="/manifest.json"></link>
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+          <meta name="apple-mobile-web-app-title" content="Podcaster🎤" />
+          <link rel="apple-touch-icon" href="/podacastermicsquarebig.png"></link>
+          <meta name="description" content="A Podcast planner"></meta>
+          <meta name="theme-color" content="#3549ff" />
         </Head>
         <Component {...pageProps} />
       </Layout>
