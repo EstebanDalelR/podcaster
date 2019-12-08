@@ -12,6 +12,9 @@ For the deployment, [Now](https://zeit.co/) was chosen, and [Airtable](https://a
 
  ## Using it locally
  Podcaster may be used locally by pulling this repo, installing it and adding the ```.env```. This may either be a personal Airtable DB or you may ask for the shared one that the system uses in production. 
+ You may also install the app locally (thanks to the service worker) to use it with reduced functionallity. 
+
+ ![localapp](./public/desktop.jpeg)
 
  ## Special thanks
  [Juliana Jaime](https://github.com/PeppermintNDaisies) - Donated design ideas, and mic logo.
