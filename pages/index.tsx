@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link"
+import { Trans } from 'react-i18next';
 import useUserJWT from "../hooks/useUserJWT"
 import BenefitsCard from "../components/indexBenefitCard";
 const Index = () => {
@@ -45,7 +46,10 @@ const Index = () => {
           border-radius: 4px;
         }
       `}</style>
-      <h1>Welcome to Podcaster</h1>
+
+      <h1>
+        Welcome to Podcaster
+        </h1>
       <p>
         Congrats on deciding to share your knowledge and opinions to the world.
         We know a podcast might seem like a lot, from editing to publishing, but we're here to help.

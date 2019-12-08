@@ -2,18 +2,23 @@ import React from 'react'
 import App from 'next/app'
 import Layout from '../components/layout'
 import Head from 'next/head'
+import "../public/locales/en/translation.json"
+import "../public/locales/es/translation.json"
+import "../public/locales/en-US/translation.json"
+import i18n from "../i18n"
 export default class MyApp extends App {
+  
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
-
+    
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
-
     return { pageProps }
   }
-
+  
   render() {
+    console.log("i18n")
     const { Component, pageProps } = this.props
     return (
       <Layout>
