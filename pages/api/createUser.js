@@ -1,12 +1,18 @@
 import base from './_airtable_config'
 import { throws } from 'assert'
 import jwt from 'jsonwebtoken'
+const bcrypt = require('bcryptjs')
 
 export default (req, res) => {
   const table = base('Users')
   console.log(req.body)
   try {
-    table.create([req.body], function (err, records) {
+    table.create([{
+      fields: {
+        "Email": req.body.fields.Email,
+        "Password": bcrypt.hashSync(req.body.fields.Password, 8)
+      }
+    }], function (err, records) {
       if (err) {
         console.log(err)
         throws(err);
