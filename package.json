@@ -27,6 +27,7 @@
   "homepage": "https://github.com/EstebanDalelR/podcaster#readme",
   "dependencies": {
     "airtable": "^0.8.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "i18next": "^19.0.1",
     "i18next-browser-languagedetector": "^4.0.1",
