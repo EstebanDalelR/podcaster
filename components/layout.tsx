@@ -1,11 +1,16 @@
 import i18n from "../i18n"
+import Link from "next/link"
 import { useEffect } from 'react';
+
+import useUserJWT from "../hooks/useUserJWT"
 
 export default function Layout(props) {
   useEffect(() =>
     console.log("i18n")
     , [i18n.isInitialized])
   const { children } = props
+  let userJWT = useUserJWT()
+
   let social = {
     li: "https://www.linkedin.com/in/estebandalelr/",
     gh: "https://github.com/estebandalelr",
@@ -49,16 +54,58 @@ export default function Layout(props) {
           align-items: center;
           justify-content: flex-end;
         }
+        .nav{
+          display: flex;
+          width: 100;
+          height: 3.5em;
+          background-color: #35b8ff;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .links > button{
+          border: white;
+          color: white;
+          background-color: #3549ff;
+          margin-inline: auto;
+          padding-inline: 2em;
+          padding-block: 1em;
+          border-radius: 4px;
+        }
+        .links{
+          min-width: 30%;
+          align-items: center;
+          display: flex;
+          justify-content: space-around;
+        }
         `}</style>
-        <div className="langs">
-          <p style={{margin:0}}>Viewing in {i18n.language}</p>
+      <nav className="nav">
+        {i18n.language
+          ? <p style={{ margin: 0 }}>Viewing in {`${i18n.language}`}</p>
+          : <div />
+        }
+        <div className="links">
+          {userJWT
+            ? <>
+              <Link href="/create">
+                <button>Create Podcast</button>
+              </Link>
+              <Link href="/podcasts">
+                <button>Your podcasts</button>
+              </Link>
+            </>
+            : <Link href="/signup">
+              <button>Create Account</button>
+            </Link>
+          }
+
         </div>
+      </nav>
       <div className="container">
         {children}
       </div>
       <footer>
-          <p>
-            Created by Esteban Dalel R
+        <p>
+          Created by Esteban Dalel R
           </p>
         <div className="social">
           {socialKeys.map((key, index) =>
