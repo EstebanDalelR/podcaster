@@ -32,6 +32,7 @@ export default function Layout(props) {
                 padding-block: 10px;
                 border-radius: 4px;
                 text-shadow: none;
+                margin-inline: 2px;
               }
               .links > button.primary{
                 border: solid #cbcbcb;
@@ -42,6 +43,7 @@ export default function Layout(props) {
                 padding-block: 10px;
                 text-shadow: none;
                 font-weight: bold;
+                margin-inline: 2px;
                 border-radius: 4px;
               }
             }
