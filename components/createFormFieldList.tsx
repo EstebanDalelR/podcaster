@@ -40,6 +40,22 @@ const Fields = ({ fieldTexts, savedFields, userJWT }: Props) => {
   let SaveButton = () => {
     return (<>
       <style jsx>{`
+      @media only screen 
+      and (max-device-width : 736px) {
+      
+        button{
+          color: white;
+          background-color:#0027FF;
+          border-radius: 10px;
+          border: none;
+          padding-block: 10px;
+          padding-inline: 20px;
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+      @media only screen 
+      and (min-device-width : 736px) { 
       button{
         color: white;
         background-color:#0027FF;
@@ -48,6 +64,7 @@ const Fields = ({ fieldTexts, savedFields, userJWT }: Props) => {
         padding-block: 1%;
         padding-inline: 2%;
       }
+    }
       `}
       </style>
       <button type="submit">Save</button>

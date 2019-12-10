@@ -10,6 +10,13 @@ const Field = ({ title, description, name, fieldValue, handleChange }: Props) =>
   return (
     <div className={name}>
       <style jsx>{`
+        @media only screen 
+        and (max-device-width : 736px) {
+          input{
+            width: 90%;
+            margin: auto;
+          }
+        }
         input{
           height: 3em;
         }
