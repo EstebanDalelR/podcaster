@@ -31,7 +31,7 @@ export default function Layout(props) {
         }
         footer{
           width: 100%;
-          background-color: #70ffe7;
+          background-color: #060606;
           align-items: center;
           color: black;
           display: flex;
@@ -40,6 +40,7 @@ export default function Layout(props) {
         footer > p{
           margin: 0;
           width: 50%;
+          color: white;
           text-shadow: none;
         }
         img{
@@ -56,18 +57,30 @@ export default function Layout(props) {
         .nav{
           display: flex;
           width: 100;
-          height: 3.5em;
-          background-color: #35b8ff;
+          height: 4em;
+          background-color: #181818;
           justify-content: space-between;
           align-items: center;
         }
-        .links > button{
-          border: white;
-          color: white;
-          background-color: #3549ff;
+        .links > button.secondary{
+          border: solid #cbcbcb;
+          color: #cbcbcb;
+          background-color: #292929;
           margin-inline: auto;
           padding-inline: 2em;
           padding-block: 1em;
+          border-radius: 4px;
+          text-shadow: none;
+        }
+        .links > button.primary{
+          border: solid #292929;
+          color: #292929;
+          background-color: #cbcbcb;
+          margin-inline: auto;
+          padding-inline: 2em;
+          padding-block: 1em;
+          text-shadow: none;
+          font-weight: bold;
           border-radius: 4px;
         }
         .links{
@@ -75,6 +88,9 @@ export default function Layout(props) {
           align-items: center;
           display: flex;
           justify-content: space-around;
+        }
+        a> img{
+          filter: invert(100%);
         }
         `}</style>
       <nav className="nav">
@@ -85,16 +101,21 @@ export default function Layout(props) {
         <div className="links">
           {userJWT
             ? <>
-              <Link href="/create">
-                <button>Create Podcast</button>
-              </Link>
               <Link href="/podcasts">
-                <button>Your podcasts</button>
+                <button className="secondary">Your podcasts</button>
+              </Link>
+              <Link href="/create">
+                <button className="primary">Create Podcast</button>
               </Link>
             </>
-            : <Link href="/signup">
-              <button>Create Account</button>
+            : <>
+            <Link href="/login">
+              <button className="secondary">Login</button>
             </Link>
+            <Link href="/signup">
+              <button className="primary">Signup</button>
+            </Link>
+            </>
           }
 
         </div>
