@@ -4,8 +4,8 @@ export default function BenefitsCard(props: { text, icon }) {
       <style jsx>{`
         .card{
           border-radius: 5px;
-          box-shadow: 4px 5px 5px grey;
-          background-color: white;
+          border: thin solid #444444;
+          background-color: #181818;
           padding: 2%;
           margin: 2%;
           display: flex;
@@ -14,8 +14,13 @@ export default function BenefitsCard(props: { text, icon }) {
           flex-direction: column;
           text-align: center;
         }
+        img{
+          filter: invert(100%);
+          width: 96px;
+          height: 96px;
+        }
       `}</style>
-        <img src={`/icons/${props.icon}.png`} alt={props.icon} />
+        <img src={`/icons/${props.icon}.png`} alt={props.icon}  width="96px" height="96px" />
         <p>
           {props.text}
         </p>
