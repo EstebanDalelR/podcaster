@@ -28,11 +28,11 @@ export default class MyApp extends App {
           margin: 0px;
         }
         h1, h2, h3, h4, h5{
-          text-shadow: 1px 1px 2px white;
+          color: #fbfbfb;
           font-family: 'Copse', sans-serif;
         }
         p, ul, button{
-          text-shadow: 1px 1px 2px white;
+          color: #fbfbfb;
           font-family: "Rubik";
         }
       `}</style>
