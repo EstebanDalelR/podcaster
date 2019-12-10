@@ -23,10 +23,16 @@ export default function Layout(props) {
       <style jsx>{`
         .background{
           background: #292929;
+          min-height: 100vh;
           height: 100%;
           width: 100%;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
         }
         .container{
+          height: 100%;
+          min-height: 90%;
           padding: 2%;
         }
         footer{
@@ -124,9 +130,9 @@ export default function Layout(props) {
 
         </div>
       </nav>
-      <div className="container">
+      <main className="container">
         {children}
-      </div>
+      </main>
       <footer>
         <p>
           Created by Esteban Dalel R
