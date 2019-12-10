@@ -9,10 +9,22 @@ const BackgroundCard = () => {
       <style jsx>{`
     @media only screen 
     and (max-device-width : 736px) {
-      .podcastHolder{
-        display: grid;
-        grid-template-columns: 1fr;
-      }   
+      .background{
+        background-color: #292929;
+        height: 100%;
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+      }    
+      .imgContainer{
+        background-image: url("/img/localstudio_wkgcyu/localstudio_wkgcyu_c_scale,w_1048.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .imgContainer>img{
+        height: 100%;
+      }  
       }
     @media only screen 
     and (min-device-width : 736px) {    
@@ -29,6 +41,7 @@ const BackgroundCard = () => {
       .imgContainer>img{
         width: 100%;
       }
+    }
     `}</style>
       <div className="imgContainer">
         <img
@@ -110,10 +123,52 @@ const Login = () => {
       }
       @media only screen 
       and (max-device-width : 736px) {
-        .podcastHolder{
+        .login{
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr;
+          width: 100%;  
+          justify-items: center;
         }   
+        .loginCard{
+          grid-column: 1 / span 2;
+          grid-row: 1 / span 1;
+          background-color: #18181818;
+          height: 100%;
+          width: 95%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+        } 
+        button{
+          border: none;
+          color: white;
+          background-color: #3549ff;
+          margin-inline: auto;
+          margin-block: 1em;
+          padding-inline: 2em;
+          padding-block: 1em;
+          border-radius: 4px;
+          width: 100%;
+        }
+        input{
+          width: 100%;
+          border-radius: 4px;
+          border: none;
+          margin-block: 1em;
+          padding-block: 1em;
+        }
+        p, a{
+          margin-block: 1em;
+          color: whitesmoke;
+        }
+        .loginCard>*{
+          width: 80%;
+        }
+        h1{
+          text-align: center;
+        } 
         }
       @media only screen 
       and (min-device-width : 736px) {    
