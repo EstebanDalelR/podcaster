@@ -3,12 +3,7 @@
   "short_name": "Podcaster🎤",
   "icons": [
     {
-      "src": "/podcastermicsquare.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "/podcastermicsquarebig.png",
+      "src": "/Podcaster.png",
       "sizes": "512x512",
       "type": "image/png"
     }
