@@ -22,8 +22,7 @@ export default function Layout(props) {
     <div className="background">
       <style jsx>{`
         .background{
-          background: linear-gradient(to bottom right, rgba(0,0,255, 0.5) 15%, transparent 15%, whitesmoke 25%),
-            url(/podcastermic.png);
+          background: #292929;
           height: 100%;
           width: 100%;
         }
