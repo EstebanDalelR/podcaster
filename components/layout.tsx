@@ -21,6 +21,55 @@ export default function Layout(props) {
   return (
     <div className="background">
       <style jsx>{`
+            @media only screen 
+            and (max-device-width : 736px) {
+              .links > button.secondary{
+                border: solid #cbcbcb;
+                color: #cbcbcb;
+                background-color: #292929;
+                margin-inline: auto;
+                padding-inline: 10px;
+                padding-block: 10px;
+                border-radius: 4px;
+                text-shadow: none;
+              }
+              .links > button.primary{
+                border: solid #cbcbcb;
+                color: #292929;
+                background-color: #cbcbcb;
+                margin-inline: auto;
+                padding-inline: 10px;
+                padding-block: 10px;
+                text-shadow: none;
+                font-weight: bold;
+                border-radius: 4px;
+              }
+            }
+            @media only screen 
+            and (min-device-width : 736px) { 
+              .links > button.secondary{
+                border: solid #cbcbcb;
+                color: #cbcbcb;
+                background-color: #292929;
+                margin-inline: auto;
+                padding-inline: 2em;
+                padding-block: 1em;
+                border-radius: 4px;
+                text-shadow: none;
+              } 
+              .links > button.primary{
+                border: solid #292929;
+                color: #292929;
+                background-color: #cbcbcb;
+                margin-inline: auto;
+                padding-inline: 2em;
+                padding-block: 1em;
+                text-shadow: none;
+                font-weight: bold;
+                border-radius: 4px;
+              }
+
+            }
         .background{
           background: #292929;
           min-height: 100vh;
@@ -68,27 +117,7 @@ export default function Layout(props) {
           justify-content: space-between;
           align-items: center;
         }
-        .links > button.secondary{
-          border: solid #cbcbcb;
-          color: #cbcbcb;
-          background-color: #292929;
-          margin-inline: auto;
-          padding-inline: 2em;
-          padding-block: 1em;
-          border-radius: 4px;
-          text-shadow: none;
-        }
-        .links > button.primary{
-          border: solid #292929;
-          color: #292929;
-          background-color: #cbcbcb;
-          margin-inline: auto;
-          padding-inline: 2em;
-          padding-block: 1em;
-          text-shadow: none;
-          font-weight: bold;
-          border-radius: 4px;
-        }
+
         .links{
           min-width: 30%;
           align-items: center;
