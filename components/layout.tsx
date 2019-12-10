@@ -56,7 +56,7 @@ export default function Layout(props) {
         }
         .nav{
           display: flex;
-          width: 100;
+          width: 100%;
           height: 4em;
           background-color: #181818;
           justify-content: space-between;
@@ -92,12 +92,16 @@ export default function Layout(props) {
         a> img{
           filter: invert(100%);
         }
+        .brand{
+          width: 4em;
+          height: 4em;
+          cursor: pointer;
+        }
         `}</style>
       <nav className="nav">
-        {i18n.language
-          ? <p style={{ margin: 0 }}>Viewing in {`${i18n.language}`}</p>
-          : <div />
-        }
+        <Link href="/">
+          <img src="/Podcaster.png" className="brand"></img>
+        </Link>
         <div className="links">
           {userJWT
             ? <>
@@ -109,12 +113,12 @@ export default function Layout(props) {
               </Link>
             </>
             : <>
-            <Link href="/login">
-              <button className="secondary">Login</button>
-            </Link>
-            <Link href="/signup">
-              <button className="primary">Signup</button>
-            </Link>
+              <Link href="/login">
+                <button className="secondary">Login</button>
+              </Link>
+              <Link href="/signup">
+                <button className="primary">Signup</button>
+              </Link>
             </>
           }
 
