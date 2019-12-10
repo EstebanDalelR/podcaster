@@ -8,10 +8,19 @@ const BackgroundCard = () => {
       <style jsx>{`
     @media only screen 
     and (max-device-width : 736px) {
-      .podcastHolder{
-        display: grid;
-        grid-template-columns: 1fr;
-      }   
+      .background{
+      background-color: #292929;
+      height: 100%;
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 1;
+    }    
+    .imgContainer{
+      height: 100%;
+    }
+    .imgContainer>img{
+      padding-right: 800px;
+      height: 100%;
+    }    
       }
     @media only screen 
     and (min-device-width : 736px) {    
@@ -90,10 +99,45 @@ const Signup = () => {
       <style jsx>{`
     @media only screen 
     and (max-device-width : 736px) {
-      .podcastHolder{
+      .signup{
         display: grid;
         grid-template-columns: 1fr;
+        width: 100%;  
+        justify-items: center;
       }   
+      .signupCard{
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+        background-color: #18181818;
+        height: 100%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      } 
+      button{
+        border: none;
+        color: white;
+        background-color: #3549ff;
+        margin-inline: auto;
+        margin-block: 1em;
+        padding-inline: 2em;
+        padding-block: 1em;
+        border-radius: 4px;
+        width: 100%;
+      }
+      input{
+        width: 100%;
+        border-radius: 4px;
+        border: none;
+        margin-block: 1em;
+        padding-block: 1em;
+      }
+      p, a{
+        margin-block: 1em;
+        color: whitesmoke;
+      } 
       }
     @media only screen 
     and (min-device-width : 736px) {    
