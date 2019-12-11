@@ -74,6 +74,7 @@ export default function Layout(props) {
             }
         .background{
           background: #292929;
+          overflow: hidden;
           min-height: 100vh;
           height: 100%;
           width: 100%;

@@ -16,9 +16,11 @@ const BackgroundCard = () => {
     }    
     .imgContainer{
       height: 100%;
+      width: 100%;
     }
     .imgContainer>img{
       padding-right: 800px;
+      width: 100%;
       height: 100%;
     }    
       }
