@@ -122,22 +122,30 @@ const Signup = () => {
         border: none;
         color: white;
         background-color: #3549ff;
-        margin-inline: auto;
-        margin-block: 1em;
-        padding-inline: 2em;
-        padding-block: 1em;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        padding-right: 2em;
+        padding-left: 2em;
+        padding-top: 1em;
+        padding-bottom: 1em;
         border-radius: 4px;
         width: 100%;
       }
       input{
         width: 100%;
+        min-height: 2em;
         border-radius: 4px;
         border: none;
-        margin-block: 1em;
-        padding-block: 1em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        padding-top: 1em;
+        padding-bottom: 1em;
       }
       p, a{
-        margin-block: 1em;
+        margin-top: 1em;
+        margin-bottom: 1em;
         color: whitesmoke;
       } 
       }
@@ -164,22 +172,30 @@ const Signup = () => {
         border: none;
         color: white;
         background-color: #3549ff;
-        margin-inline: auto;
-        margin-block: 1em;
-        padding-inline: 2em;
-        padding-block: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 2em;
+        padding-left: 2em;
+        margin-top: 1em;
+margin-bottom: 1em;
+        padding-top: 1em;
+        padding-bottom: 1em;
         border-radius: 4px;
         width: 100%;
       }
       input{
         width: 100%;
         border-radius: 4px;
-        border: none;
-        margin-block: 1em;
-        padding-block: 1em;
+          min-height: 2em;
+          border: none;
+        margin-top: 1em;
+margin-bottom: 1em;
+        padding-top: 1em;
+        padding-bottom: 1em;
       }
       p, a{
-        margin-block: 1em;
+        margin-top: 1em;
+margin-bottom: 1em;
         color: whitesmoke;
       }
     `}</style>
@@ -195,6 +211,7 @@ const Signup = () => {
             name={"email"}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder={"Your mail"}
             required
           />
           <p>
@@ -203,6 +220,7 @@ const Signup = () => {
           <input
             type="password"
             name={"password"}
+            placeholder={"Your super secure password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required

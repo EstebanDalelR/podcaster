@@ -27,23 +27,29 @@ export default function Layout(props) {
                 border: solid #cbcbcb;
                 color: #cbcbcb;
                 background-color: #292929;
-                margin-inline: auto;
-                padding-inline: 10px;
-                padding-block: 10px;
+                margin-right: 2px;
+                margin-left: 2px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                min-height: 80%;
                 border-radius: 4px;
                 text-shadow: none;
-                margin-inline: 2px;
               }
               .links > button.primary{
                 border: solid #cbcbcb;
+                min-height: 80%;
                 color: #292929;
                 background-color: #cbcbcb;
-                margin-inline: auto;
-                padding-inline: 10px;
-                padding-block: 10px;
+                margin-right: 2px;
+                margin-left: 2px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
                 text-shadow: none;
                 font-weight: bold;
-                margin-inline: 2px;
                 border-radius: 4px;
               }
             }
@@ -53,9 +59,12 @@ export default function Layout(props) {
                 border: solid #cbcbcb;
                 color: #cbcbcb;
                 background-color: #292929;
-                margin-inline: auto;
-                padding-inline: 2em;
-                padding-block: 1em;
+                margin-right: auto;
+                margin-left: auto;
+                padding-left: 2em;
+                padding-right: 2em;
+                padding-top: 1em;
+                padding-bottom: 1em;
                 border-radius: 4px;
                 text-shadow: none;
               } 
@@ -63,9 +72,12 @@ export default function Layout(props) {
                 border: solid #292929;
                 color: #292929;
                 background-color: #cbcbcb;
-                margin-inline: auto;
-                padding-inline: 2em;
-                padding-block: 1em;
+                margin-right: auto;
+                margin-left: auto;
+                padding-left: 2em;
+                padding-right: 2em;
+                padding-top: 1em;
+                padding-bottom: 1em;
                 text-shadow: none;
                 font-weight: bold;
                 border-radius: 4px;

@@ -49,7 +49,8 @@ const Fields = ({ fieldTexts, savedFields, userJWT }: Props) => {
           border-radius: 10px;
           border: none;
           padding-block: 10px;
-          padding-inline: 20px;
+          padding-left: 20px;
+          padding-right: 20px;
           width: 100%;
           margin-bottom: 20px;
         }
@@ -62,7 +63,8 @@ const Fields = ({ fieldTexts, savedFields, userJWT }: Props) => {
         border-radius: 10px;
         border: none;
         padding-block: 1%;
-        padding-inline: 2%;
+        padding-left: 2%;
+        padding-right: 2%;
       }
     }
       `}

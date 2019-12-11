@@ -40,7 +40,8 @@ const Index = () => {
           background-color: #3549ff;
           color: white;
           border: none;
-          padding-inline: 2%;
+          padding-left: 2%;
+          padding-right: 2%;
           padding-block: 1em;
           border-radius: 4px;
         }

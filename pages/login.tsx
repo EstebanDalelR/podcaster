@@ -30,15 +30,18 @@ const BackgroundCard = () => {
     and (min-device-width : 736px) {    
       .background{
         background-color: #292929;
+        height: 100%;
         width: 100%;
         grid-column: 1 / span 2;
         grid-row: 1 / span 1;
       }    
       .imgContainer{
-        width: 90%;
+        height: 100%;
+        width: 100%;
         margin:auto;
       }
       .imgContainer>img{
+        height: 100%;
         width: 100%;
       }
     }
@@ -145,10 +148,14 @@ const Login = () => {
           border: none;
           color: white;
           background-color: #3549ff;
-          margin-inline: auto;
-          margin-block: 1em;
-          padding-inline: 2em;
-          padding-block: 1em;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 1em;
+          margin-bottom: 1em;
+          padding-left: 2em;
+          padding-right: 2em;
+          padding-top: 1em;
+          padding-bottom: 1em;
           border-radius: 4px;
           width: 100%;
         }
@@ -156,11 +163,15 @@ const Login = () => {
           width: 100%;
           border-radius: 4px;
           border: none;
-          margin-block: 1em;
-          padding-block: 1em;
+          min-height: 2em;
+          margin-top: 1em;
+          margin-bottom: 1em;
+          padding-top: 1em;
+          padding-bottom: 1em;
         }
         p, a{
-          margin-block: 1em;
+          margin-top: 1em;
+          margin-bottom: 1em;
           color: whitesmoke;
         }
         .loginCard>*{
@@ -193,22 +204,30 @@ const Login = () => {
           border: none;
           color: white;
           background-color: #3549ff;
-          margin-inline: auto;
-          margin-block: 1em;
-          padding-inline: 2em;
-          padding-block: 1em;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 1em;
+          margin-bottom: 1em;
+          padding-left: 2em;
+          padding-right: 2em;
+          padding-bottom: 1em;
+          padding-top: 1em;
           border-radius: 4px;
           width: 100%;
         }
         input{
           width: 100%;
           border-radius: 4px;
+          min-height: 2em;
           border: none;
-          margin-block: 1em;
-          padding-block: 1em;
+          margin-top: 1em;
+          margin-bottom: 1em;
+          padding-top: 1em;
+          padding-bottom: 1em;
         }
         p, a{
-          margin-block: 1em;
+          margin-top: 1em;
+          margin-bottom: 1em;
           color: whitesmoke;
         }
         .loginCard>*{
