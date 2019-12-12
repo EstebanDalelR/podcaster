@@ -21,13 +21,13 @@ export default function Podcast({ id, fields }: Props) {
       <style jsx>{`
         .card{
           border-radius: 5px;
-          box-shadow: 4px 5px 5px grey;
-          background-color: white;
+          border: thin solid #444444;
+          background-color: #181818;
           padding: 2%;
           margin: 2%;
           display: flex;
-          justify-content: flex-start;
-          align-items: flex-start;
+          justify-content: center;
+          align-items: center;
           flex-direction: column;
         }
       `}</style>
