@@ -1,13 +1,9 @@
-import i18n from "../i18n"
 import Link from "next/link"
-import { useEffect } from 'react';
 
 import useUserJWT from "../hooks/useUserJWT"
 
 export default function Layout(props) {
-  useEffect(() =>
-    console.log("i18n")
-    , [i18n.isInitialized])
+
   const { children } = props
   let userJWT = useUserJWT()
 
