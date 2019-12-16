@@ -2,9 +2,7 @@ import React from 'react'
 import App from 'next/app'
 import Layout from '../components/layout'
 import Head from 'next/head'
-import "../public/locales/en/translation.json"
-import "../public/locales/es/translation.json"
-import "../public/locales/en-US/translation.json"
+
 export default class MyApp extends App {
 
   static async getInitialProps({ Component, router, ctx }) {
@@ -59,6 +57,7 @@ export default class MyApp extends App {
             <link rel="prefetch" href="/icons/loyalty.png" />
             <link rel="prefetch" href="/icons/assignment.png" />
             <link rel="prefetch" href="/icons/account_circle.png" />
+            <link rel="stylesheet" href="/Draft.css" />
         </Head>
           <Component {...pageProps} />
       </Layout>
