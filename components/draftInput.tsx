@@ -1,98 +1,114 @@
 import React, { useState } from 'react'
 import { Editor, EditorState, RichUtils } from 'draft-js'
+
 function StyleHolder(props) {
-  return (
-    <>
-      <style jsx>{`
-      .styleHolder{
-        display: flex;
-        justify-content: space-evenly;
-        width: 100%;
+  function StyleButtons(props) {
+    let stylesArray = [
+      {
+        value: 'Bold',
+        style: 'BOLD'
+      },
+
+      {
+        value: 'Italic',
+        style: 'ITALIC'
+      },
+
+      {
+        value: 'Underline',
+        style: 'UNDERLINE'
+      },
+
+      {
+        value: 'Strikethrough',
+        style: 'STRIKETHROUGH'
+      },
+
+      {
+        value: 'Code',
+        style: 'CODE'
       }
+    ]
+    return (
+      <>
+        <style jsx>{`
       input{
-        border: none;
         background-color: lightgrey;
         border: 1px solid darkgrey;
       }
       .bold{
         font-weight: bold;
         ${props.bold
-          ? `
+            ? `
           background-color: darkgrey;
           `
-          : ""}
+            : ""}
       }
       .italic {
         font-style: italic;
         font-family: serif;
         ${props.italic
-          ? `
+            ? `
           background-color: darkgrey;
           `
-          : ""}      
+            : ""}      
         }
       .strike{
         text-decoration: line-through;
         ${props.strike
-          ? `
+            ? `
           background-color: darkgrey;
           `
-          : ""}
+            : ""}
       }
       .underline{
         text-decoration: underline;
         ${props.underline
-          ? `
+            ? `
           background-color: darkgrey;
           `
-          : ""}
+            : ""}
       }
       .code{
         font-family: monospace;
         ${props.code
-          ? `
+            ? `
           background-color: darkgrey;
           `
-          : ""}
+            : ""}
         }
     `}</style>
-      <div className="styleHolder">
-        <input
-          type="button"
-          className="bold"
-          value="B"
-          data-style="BOLD"
-          onMouseDown={props.toggleInlineStyle}
-        />
+        {stylesArray.map(element =>
+          <input
+            type="button"
+            className={element.style.toLowerCase()}
+            value={element.style[0]}
+            data-style={element.style}
+            onMouseDown={props.toggleInlineStyle}
+            key={element.style}
+          />
+        )}
+      </>
+    )
+  }
 
-        <input
-          type="button"
-          className="italic"
-          value="I"
-          data-style="ITALIC"
-          onMouseDown={props.toggleInlineStyle}
-        />
-        <input
-          type="button"
-          className="underline"
-          value="U"
-          data-style="UNDERLINE"
-          onMouseDown={props.toggleInlineStyle}
-        />
-        <input
-          type="button"
-          className="strike"
-          value="S"
-          data-style="STRIKETHROUGH"
-          onMouseDown={props.toggleInlineStyle}
-        />
-        <input
-          type="button"
-          className="code"
-          value="C"
-          data-style="CODE"
-          onMouseDown={props.toggleInlineStyle}
-        />
+  return (
+    <>
+      <style jsx>{`
+      .styleHolder{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+    `}</style>
+      <div className="styleHolder">
+        <StyleButtons
+          bold={props.bold}
+          italic={props.italic}
+          code={props.code}
+          strike={props.strike}
+          underline={props.underline}
+          toggleInlineStyle={props.toggleInlineStyle} />
       </div>
     </>
   )
@@ -137,15 +153,15 @@ export default function MyEditor() {
         color: black;
       }
     `}</style>
-      <div className="editor">
-    <StyleHolder
-      bold={bold}
-      italic={italic}
-      code={code}
-      strike={strike}
-      underline={underline}
-      toggleInlineStyle={toggleInlineStyle}
-    />
+    <div className="editor">
+      <StyleHolder
+        bold={bold}
+        italic={italic}
+        code={code}
+        strike={strike}
+        underline={underline}
+        toggleInlineStyle={toggleInlineStyle}
+      />
       <Editor
         editorState={editorState}
         onChange={setEditorState}
