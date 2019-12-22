@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Editor, EditorState, RichUtils } from 'draft-js'
+import { Editor, EditorState, RichUtils , 
+   getDefaultKeyBinding, KeyBindingUtil} from 'draft-js'
 
 function StyleHolder(props) {
   function StyleButtons(props) {
@@ -53,7 +54,7 @@ function StyleHolder(props) {
           `
             : ""}      
         }
-      .strike{
+      .strikethrough{
         text-decoration: line-through;
         ${props.strike
             ? `
@@ -144,10 +145,33 @@ export default function MyEditor() {
         break
     }
   }
+  let handleKeyCommand=(command) =>{
+    // inline formatting key commands handles bold, italic, code, underline
+    let newEditorState = RichUtils.handleKeyCommand(editorState, command);
+    if (!newEditorState && command === 'strikethrough') {
+      newEditorState = RichUtils.toggleInlineStyle(editorState, 'STRIKETHROUGH');
+    }
+    if (newEditorState) {
+      setEditorState(newEditorState);
+      return 'handled';
+    }
+
+    return 'not-handled';
+  }
+  let keyBindingFunction= (event)=> {
+    KeyBindingUtil.hasCommandModifier(event)? event.preventDefault() : null
+    if (KeyBindingUtil.hasCommandModifier(event) && event.key === 's') {
+      return 'strikethrough';
+    }
+  
+    return getDefaultKeyBinding(event);
+  }
+  
+
   return <>
     <style jsx>{`
       .editor{
-        width: 200px;
+        width: 50%;
         height: 200px;
         background-color: moccasin;
         color: black;
@@ -165,6 +189,8 @@ export default function MyEditor() {
       <Editor
         editorState={editorState}
         onChange={setEditorState}
+        handleKeyCommand={handleKeyCommand}
+        keyBindingFn={keyBindingFunction}
       />
     </div>
   </>
