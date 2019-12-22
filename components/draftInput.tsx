@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Editor, EditorState, RichUtils , 
-   getDefaultKeyBinding, KeyBindingUtil} from 'draft-js'
+import {
+  Editor, EditorState, RichUtils,
+  getDefaultKeyBinding, KeyBindingUtil
+} from 'draft-js'
 
 function StyleHolder(props) {
   function StyleButtons(props) {
@@ -145,28 +147,64 @@ export default function MyEditor() {
         break
     }
   }
-  let handleKeyCommand=(command) =>{
+  let handleKeyCommand = (command) => {
     // inline formatting key commands handles bold, italic, code, underline
-    let newEditorState = RichUtils.handleKeyCommand(editorState, command);
-    if (!newEditorState && command === 'strikethrough') {
-      newEditorState = RichUtils.toggleInlineStyle(editorState, 'STRIKETHROUGH');
+    let newEditorState = RichUtils.handleKeyCommand(editorState, command)
+    // inline formatting key commands handles strikethrough
+    if (!newEditorState)
+    switch (command) {
+      case 'strikethrough':
+        newEditorState = RichUtils.toggleInlineStyle(editorState, 'STRIKETHROUGH')        
+        break
+      case 'code':
+        newEditorState = RichUtils.toggleInlineStyle(editorState, 'CODE')        
+        break;
+    
+      default:
+        break;
     }
     if (newEditorState) {
-      setEditorState(newEditorState);
+      setEditorState(newEditorState)
+      switch (`${command}`.toUpperCase()) {
+        case "ITALIC":
+          setItalic(!italic)
+          break
+        case "BOLD":
+          setBold(!bold)
+          break
+        case "CODE":
+          setCode(!code)
+          break
+        case "UNDERLINE":
+          setUnderline(!underline)
+          break
+        case "STRIKETHROUGH":
+          setStrike(!strike)
+          break
+        default:
+          break
+      }
       return 'handled';
     }
 
     return 'not-handled';
   }
-  let keyBindingFunction= (event)=> {
-    KeyBindingUtil.hasCommandModifier(event)? event.preventDefault() : null
-    if (KeyBindingUtil.hasCommandModifier(event) && event.key === 's') {
-      return 'strikethrough';
+  let keyBindingFunction = (event) => {
+    if (KeyBindingUtil.hasCommandModifier(event)) {
+      switch (event.key) {
+        case "s":
+          event.preventDefault()
+          return 'strikethrough';
+        case "c":
+          event.preventDefault()
+          return 'code';
+        default:
+          break;
+      }
     }
-  
     return getDefaultKeyBinding(event);
   }
-  
+
 
   return <>
     <style jsx>{`
