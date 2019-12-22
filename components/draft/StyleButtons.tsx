@@ -24,6 +24,10 @@ function StyleButtons(props) {
     {
       value: 'Code',
       style: 'CODE'
+    },
+    {
+      value: 'Highlight',
+      style: 'HIGHLIGHT'
     }
   ]
   return (
@@ -73,6 +77,16 @@ function StyleButtons(props) {
           background-color: darkgrey;
           `
           : ""}
+        }
+      .highlight{
+          text-decoration: line-through;
+          text-decoration-color: rgba(255, 255, 0, 0.4);
+          text-decoration-thickness: 1em;
+          ${props.highlight
+            ? `
+            background-color: darkgrey;
+            `
+            : ""}
         }
     `}</style>
       {stylesArray.map(element =>

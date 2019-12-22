@@ -19,6 +19,7 @@ export default function StyleHolder(props) {
           code={props.code}
           strike={props.strike}
           underline={props.underline}
+          highlight={props.highlight}
           toggleInlineStyle={props.toggleInlineStyle}
         />
         <BlockButtons

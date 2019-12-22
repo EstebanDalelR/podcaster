@@ -12,6 +12,7 @@ export default function MyEditor() {
   const [code, setCode] = useState(false)
   const [underline, setUnderline] = useState(false)
   const [strike, setStrike] = useState(false)
+  const [highlight, setHighlight] = useState(false)
   const [hOne, setHOne] = useState(false)
   const [hTwo, setHTwo] = useState(false)
   const [hThree, setHThree] = useState(false)
@@ -21,11 +22,19 @@ export default function MyEditor() {
   const [blockquote, setBlockquote] = useState(false)
   const [ul, setUl] = useState(false)
   const [ol, setOl] = useState(false)
+  const styleMap = {
+    'HIGHLIGHT': {
+      'backgroundColor': '#faed27',
+    }
+  }
   const toggleInlineStyle = (event) => {
     event.preventDefault()
     let style = event.currentTarget.getAttribute('data-style')
     setEditorState(RichUtils.toggleInlineStyle(editorState, style))
-    switch (style) {
+    toggleStyleValue(style)
+  }
+  const toggleStyleValue = (styleValue) => {
+    switch (styleValue) {
       case "ITALIC":
         setItalic(!italic)
         break
@@ -41,6 +50,9 @@ export default function MyEditor() {
       case "STRIKETHROUGH":
         setStrike(!strike)
         break
+      case "HIGHLIGHT":
+        setHighlight(!highlight)
+        break
       default:
         break
     }
@@ -49,8 +61,10 @@ export default function MyEditor() {
     event.preventDefault();
     let block = event.currentTarget.getAttribute('data-block')
     setEditorState(RichUtils.toggleBlockType(editorState, block))
-    switch (block) {
-
+    toggleBlockValue(block)
+  }
+  const toggleBlockValue = (blockValue) => {
+    switch (blockValue) {
       case 'header-one':
         setHOne(!hOne)
         break
@@ -78,7 +92,6 @@ export default function MyEditor() {
       case 'ordered-list-item':
         setOl(!ol)
         break
-
       default:
         break;
     }
@@ -87,35 +100,17 @@ export default function MyEditor() {
     // inline formatting key commands handles bold, italic, underline
     let newEditorState = RichUtils.handleKeyCommand(editorState, command)
     // inline formatting key commands handles strikethrough, code
-    if (!newEditorState){
-
-      console.log(command)
-      newEditorState = command.type === "style"
-      ? RichUtils.toggleInlineStyle(editorState, command.value.toUpperCase())
-      : RichUtils.toggleBlockType(editorState, command.value)
+    if (!newEditorState) {
+      if (command.type === "style") {
+        newEditorState = RichUtils.toggleInlineStyle(editorState, command.value.toUpperCase())
+        toggleStyleValue(command.value.toUpperCase())
+      } else {
+        newEditorState = RichUtils.toggleBlockType(editorState, command.value)
+        toggleBlockValue(command.value)
+      }
     }
     if (newEditorState) {
       setEditorState(newEditorState)
-      switch (`${command}`.toUpperCase()) {
-        case "ITALIC":
-
-          setItalic(!italic)
-          break
-        case "BOLD":
-          setBold(!bold)
-          break
-        case "CODE":
-          setCode(!code)
-          break
-        case "UNDERLINE":
-          setUnderline(!underline)
-          break
-        case "STRIKETHROUGH":
-          setStrike(!strike)
-          break
-        default:
-          break
-      }
       return 'handled';
     }
 
@@ -127,9 +122,18 @@ export default function MyEditor() {
         case "s":
           event.preventDefault()
           return { type: "style", value: 'strikethrough' }
-        case "c":
+        case "i":
+          event.preventDefault()
+          return { type: "style", value: 'italic' }
+        case "b":
+          event.preventDefault()
+          return { type: "style", value: 'bold' }
+        case "j":
           event.preventDefault()
           return { type: "style", value: 'code' }
+        case "h":
+          event.preventDefault()
+          return { type: "style", value: 'highlight' }
         case "1":
           event.preventDefault()
           return { type: "block", value: 'header-one' }
@@ -181,6 +185,7 @@ export default function MyEditor() {
         code={code}
         strike={strike}
         underline={underline}
+        highlight={highlight}
         toggleInlineStyle={toggleInlineStyle}
         toggleBlockType={toggleBlockType}
         hOne={hOne}
@@ -197,6 +202,7 @@ export default function MyEditor() {
         onChange={setEditorState}
         handleKeyCommand={handleKeyCommand}
         keyBindingFn={keyBindingFunction}
+        customStyleMap={styleMap}
       />
     </div>
   </>
