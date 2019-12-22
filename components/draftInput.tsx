@@ -84,21 +84,16 @@ export default function MyEditor() {
     }
   }
   let handleKeyCommand = (command) => {
-    // inline formatting key commands handles bold, italic, code, underline
+    // inline formatting key commands handles bold, italic, underline
     let newEditorState = RichUtils.handleKeyCommand(editorState, command)
-    // inline formatting key commands handles strikethrough
-    if (!newEditorState)
-      switch (command) {
-        case 'strikethrough':
-          newEditorState = RichUtils.toggleInlineStyle(editorState, 'STRIKETHROUGH')
-          break
-        case 'code':
-          newEditorState = RichUtils.toggleInlineStyle(editorState, 'CODE')
-          break;
+    // inline formatting key commands handles strikethrough, code
+    if (!newEditorState){
 
-        default:
-          break;
-      }
+      console.log(command)
+      newEditorState = command.type === "style"
+      ? RichUtils.toggleInlineStyle(editorState, command.value.toUpperCase())
+      : RichUtils.toggleBlockType(editorState, command.value)
+    }
     if (newEditorState) {
       setEditorState(newEditorState)
       switch (`${command}`.toUpperCase()) {
@@ -131,10 +126,37 @@ export default function MyEditor() {
       switch (event.key) {
         case "s":
           event.preventDefault()
-          return 'strikethrough'
+          return { type: "style", value: 'strikethrough' }
         case "c":
           event.preventDefault()
-          return 'code'
+          return { type: "style", value: 'code' }
+        case "1":
+          event.preventDefault()
+          return { type: "block", value: 'header-one' }
+        case "2":
+          event.preventDefault()
+          return { type: "block", value: 'header-two' }
+        case "3":
+          event.preventDefault()
+          return { type: "block", value: 'header-three' }
+        case "4":
+          event.preventDefault()
+          return { type: "block", value: 'header-four' }
+        case "5":
+          event.preventDefault()
+          return { type: "block", value: 'header-five' }
+        case "6":
+          event.preventDefault()
+          return { type: "block", value: 'header-six' }
+        case "q":
+          event.preventDefault()
+          return { type: "block", value: 'blockquote' }
+        case "u":
+          event.preventDefault()
+          return { type: "block", value: 'unordered-list-item' }
+        case "i":
+          event.preventDefault()
+          return { type: "block", value: 'ordered-list-item' }
         default:
           break
       }
