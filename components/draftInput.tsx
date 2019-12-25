@@ -22,6 +22,42 @@ export default function MyEditor() {
   const [blockquote, setBlockquote] = useState(false)
   const [ul, setUl] = useState(false)
   const [ol, setOl] = useState(false)
+  let stylesArray = [
+    {
+      value: 'Bold',
+      shortcut: "B",
+      style: 'BOLD'
+    },
+
+    {
+      value: 'Italic',
+      shortcut: "I",
+      style: 'ITALIC'
+    },
+
+    {
+      value: 'Underline',
+      shortcut: "U",
+      style: 'UNDERLINE'
+    },
+
+    {
+      value: 'Strikethrough',
+      shortcut: "S",
+      style: 'STRIKETHROUGH'
+    },
+
+    {
+      value: 'Code',
+      shortcut: "J",
+      style: 'CODE'
+    },
+    {
+      value: 'Highlight',
+      shortcut: "H",
+      style: 'HIGHLIGHT'
+    }
+  ]
   const styleMap = {
     'HIGHLIGHT': {
       'backgroundColor': '#faed27',
@@ -190,6 +226,7 @@ export default function MyEditor() {
     `}</style>
     <div className="editor">
       <StyleHolder
+        stylesArray={stylesArray}
         bold={bold}
         italic={italic}
         code={code}

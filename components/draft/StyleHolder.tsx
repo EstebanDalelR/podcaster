@@ -14,6 +14,7 @@ export default function StyleHolder(props) {
     `}</style>
       <div className="styleHolder">
         <StyleButtons
+          stylesArray={props.stylesArray}
           bold={props.bold}
           italic={props.italic}
           code={props.code}

@@ -1,35 +1,6 @@
-export default 
-function StyleButtons(props) {
-  let stylesArray = [
-    {
-      value: 'Bold',
-      style: 'BOLD'
-    },
+export default
+  function StyleButtons(props) {
 
-    {
-      value: 'Italic',
-      style: 'ITALIC'
-    },
-
-    {
-      value: 'Underline',
-      style: 'UNDERLINE'
-    },
-
-    {
-      value: 'Strikethrough',
-      style: 'STRIKETHROUGH'
-    },
-
-    {
-      value: 'Code',
-      style: 'CODE'
-    },
-    {
-      value: 'Highlight',
-      style: 'HIGHLIGHT'
-    }
-  ]
   return (
     <>
       <style jsx>{`
@@ -83,14 +54,15 @@ function StyleButtons(props) {
           text-decoration-color: rgba(255, 255, 0, 0.4);
           text-decoration-thickness: 1em;
           ${props.highlight
-            ? `
+          ? `
             background-color: darkgrey;
             `
-            : ""}
+          : ""}
         }
     `}</style>
-      {stylesArray.map(element =>
+      {props.stylesArray.map(element =>
         <input
+          title={`CTRL + ${element.shortcut}`}
           type="button"
           className={element.style.toLowerCase()}
           value={element.style[0]}
