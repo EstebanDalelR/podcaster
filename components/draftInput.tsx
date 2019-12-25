@@ -204,6 +204,7 @@ export default function MyEditor() {
         hFour={hFour}
         hFive={hFive}
         hSix={hSix}
+        blockquote={blockquote}
         ul={ul}
         ol={ol}
       />

@@ -30,11 +30,10 @@ export default function StyleHolder(props) {
           hFour={props.hFour}
           hFive={props.hFive}
           hSix={props.hSix}
+          blockquote={props.blockquote}
           ul={props.ul}
           ol={props.ol}
-
         />
-
       </div>
     </>
   )

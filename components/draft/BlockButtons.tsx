@@ -99,7 +99,7 @@ export default function BlockButtons(props) {
     }
 
     .blockquote{
-      ${props.blockqoute
+      ${props.blockquote
           ? `      background-color: darkgrey;`
           : ""}
     }
