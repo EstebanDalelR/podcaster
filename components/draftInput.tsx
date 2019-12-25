@@ -64,6 +64,16 @@ export default function MyEditor() {
     toggleBlockValue(block)
   }
   const toggleBlockValue = (blockValue) => {
+    setHOne(false)
+    setHTwo(false)
+    setHThree(false)
+    setHFour(false)
+    setHFive(false)
+    setHSix(false)
+    setBlockquote(false)
+    setUl(false)
+    setOl(false)
+
     switch (blockValue) {
       case 'header-one':
         setHOne(!hOne)
