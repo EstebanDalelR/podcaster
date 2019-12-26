@@ -47,7 +47,7 @@ export default function BlockButtons(props) {
     {
       value: 'Blockquote',
       classname: "blockquote",
-      shortcut: "Q",
+      shortcut: "P",
       name: `""`,
       block: 'blockquote'
     },
