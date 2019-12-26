@@ -58,6 +58,74 @@ export default function MyEditor() {
       style: 'HIGHLIGHT'
     }
   ]
+  const blockTypeButtons = [
+    {
+      value: 'Heading One',
+      name: "H1",
+      shortcut: "1",
+      classname: "hOne",
+      block: 'header-one'
+    },
+
+    {
+      value: 'Heading Two',
+      classname: "hTwo",
+      shortcut: "2",
+      name: "H2",
+      block: 'header-two'
+    },
+
+    {
+      value: 'Heading Three',
+      classname: "hThree",
+      shortcut: "3",
+      name: "H3",
+      block: 'header-three'
+    },
+    {
+      value: 'Heading Four',
+      classname: "hFour",
+      shortcut: "4",
+      name: "H4",
+      block: 'header-four'
+    },
+    {
+      value: 'Heading Five',
+      classname: "hFive",
+      shortcut: "5",
+      name: "H5",
+      block: 'header-five'
+    },
+    {
+      value: 'Heading Six',
+      classname: "hSix",
+      shortcut: "6",
+      name: "H6",
+      block: 'header-six'
+    },
+    {
+      value: 'Blockquote',
+      classname: "blockquote",
+      shortcut: "P",
+      name: `""`,
+      block: 'blockquote'
+    },
+    {
+      value: 'Unordered List',
+      classname: "ul",
+      shortcut: "U",
+      name: "UL",
+      block: 'unordered-list-item'
+    },
+
+    {
+      value: 'Ordered List',
+      classname: "ol",
+      shortcut: "O",
+      name: "OL",
+      block: 'ordered-list-item'
+    }
+  ]
   const styleMap = {
     'HIGHLIGHT': {
       'backgroundColor': '#faed27',
@@ -235,6 +303,7 @@ export default function MyEditor() {
         highlight={highlight}
         toggleInlineStyle={toggleInlineStyle}
         toggleBlockType={toggleBlockType}
+        blockTypeButtons={blockTypeButtons}
         hOne={hOne}
         hTwo={hTwo}
         hThree={hThree}

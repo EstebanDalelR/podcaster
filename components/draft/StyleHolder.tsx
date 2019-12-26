@@ -14,17 +14,18 @@ export default function StyleHolder(props) {
     `}</style>
       <div className="styleHolder">
         <StyleButtons
-          stylesArray={props.stylesArray}
           bold={props.bold}
-          italic={props.italic}
           code={props.code}
+          italic={props.italic}
           strike={props.strike}
           underline={props.underline}
           highlight={props.highlight}
+          stylesArray={props.stylesArray}
           toggleInlineStyle={props.toggleInlineStyle}
         />
         <BlockButtons
-          toggleBlockType={props.toggleBlockType}
+          ol={props.ol}
+          ul={props.ul}
           hOne={props.hOne}
           hTwo={props.hTwo}
           hThree={props.hThree}
@@ -32,8 +33,8 @@ export default function StyleHolder(props) {
           hFive={props.hFive}
           hSix={props.hSix}
           blockquote={props.blockquote}
-          ul={props.ul}
-          ol={props.ol}
+          toggleBlockType={props.toggleBlockType}
+          blockTypeButtons={props.blockTypeButtons}
         />
       </div>
     </>
