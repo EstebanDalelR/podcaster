@@ -3,6 +3,7 @@ export default function BlockButtons(props) {
     {
       value: 'Heading One',
       name: "H1",
+      shortcut: "1",
       classname: "hOne",
       block: 'header-one'
     },
@@ -10,6 +11,7 @@ export default function BlockButtons(props) {
     {
       value: 'Heading Two',
       classname: "hTwo",
+      shortcut: "2",
       name: "H2",
       block: 'header-two'
     },
@@ -17,37 +19,42 @@ export default function BlockButtons(props) {
     {
       value: 'Heading Three',
       classname: "hThree",
+      shortcut: "3",
       name: "H3",
       block: 'header-three'
     },
     {
       value: 'Heading Four',
       classname: "hFour",
+      shortcut: "4",
       name: "H4",
       block: 'header-four'
     },
     {
       value: 'Heading Five',
       classname: "hFive",
+      shortcut: "5",
       name: "H5",
       block: 'header-five'
     },
     {
       value: 'Heading Six',
       classname: "hSix",
+      shortcut: "6",
       name: "H6",
       block: 'header-six'
     },
     {
       value: 'Blockquote',
       classname: "blockquote",
+      shortcut: "Q",
       name: `""`,
       block: 'blockquote'
     },
-
     {
       value: 'Unordered List',
       classname: "ul",
+      shortcut: "U",
       name: "UL",
       block: 'unordered-list-item'
     },
@@ -55,6 +62,7 @@ export default function BlockButtons(props) {
     {
       value: 'Ordered List',
       classname: "ol",
+      shortcut: "O",
       name: "OL",
       block: 'ordered-list-item'
     }
@@ -117,6 +125,7 @@ export default function BlockButtons(props) {
       {blockTypeButtons.map(element =>
 
         <input
+        title={`CTRL+ ${element.shortcut}`}
           type="button"
           className={element.classname}
           value={element.name}
