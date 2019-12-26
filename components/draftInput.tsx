@@ -198,7 +198,7 @@ export default function MyEditor() {
         case "6":
           event.preventDefault()
           return { type: "block", value: 'header-six' }
-        case "q":
+        case "p":
           event.preventDefault()
           return { type: "block", value: 'blockquote' }
         case "u":
