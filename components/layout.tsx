@@ -3,6 +3,8 @@ import Link from "next/link"
 import { useEffect } from 'react';
 
 import useUserJWT from "../hooks/useUserJWT"
+import { Router } from "next/router";
+import { useRouter } from 'next/router'
 
 export default function Layout(props) {
   useEffect(() =>
@@ -10,6 +12,7 @@ export default function Layout(props) {
     , [i18n.isInitialized])
   const { children } = props
   let userJWT = useUserJWT()
+  const router = useRouter()
 
   let social = {
     li: "https://www.linkedin.com/in/estebandalelr/",
@@ -161,6 +164,12 @@ export default function Layout(props) {
               <Link href="/create">
                 <button className="primary">Create Podcast</button>
               </Link>
+              <button onClick={() => {
+                window.localStorage.removeItem("podcasterUserJWT")
+                router.push("/")
+              }}
+              className="secondary"
+              >Logout</button>
             </>
             : <>
               <Link href="/login">
