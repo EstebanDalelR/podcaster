@@ -244,7 +244,7 @@ const Login = () => {
         <form onSubmit={sendUser}>
           <input
             className={`${errorField === "Email" ? "error" : null}`}
-            type="text"
+            type="email"
             name={"email"}
             value={email}
             placeholder={"Your registered mail"}
