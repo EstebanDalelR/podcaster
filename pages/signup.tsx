@@ -207,7 +207,7 @@ margin-bottom: 1em;
             Create a quick account to save all of your scripts
           </p>
           <input
-            type="text"
+            type="email"
             name={"email"}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
