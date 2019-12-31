@@ -3,6 +3,8 @@ import Link from "next/link"
 import { useEffect } from 'react';
 
 import useUserJWT from "../hooks/useUserJWT"
+import { Router } from "next/router";
+import { useRouter } from 'next/router'
 
 export default function Layout(props) {
   useEffect(() =>
@@ -10,6 +12,7 @@ export default function Layout(props) {
     , [i18n.isInitialized])
   const { children } = props
   let userJWT = useUserJWT()
+  const router = useRouter()
 
   let social = {
     li: "https://www.linkedin.com/in/estebandalelr/",
@@ -23,6 +26,19 @@ export default function Layout(props) {
       <style jsx>{`
             @media only screen 
             and (max-device-width : 736px) {
+              .links > button.tertiary{
+                border:none;
+                color: #cbcbcb;
+                background-color: #292929;
+                margin-right: auto;
+                margin-left: auto;
+                padding-left: 1em;
+                padding-right: 1em;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                text-shadow: none;
+                border-radius: 4px;
+              }
               .links > button.secondary{
                 border: solid #cbcbcb;
                 color: #cbcbcb;
@@ -55,6 +71,19 @@ export default function Layout(props) {
             }
             @media only screen 
             and (min-device-width : 736px) { 
+              .links > button.tertiary{
+                border:none;
+                color: #cbcbcb;
+                background-color: #292929;
+                margin-right: auto;
+                margin-left: auto;
+                padding-left: 1em;
+                padding-right: 1em;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                text-shadow: none;
+                border-radius: 4px;
+              }
               .links > button.secondary{
                 border: solid #cbcbcb;
                 color: #cbcbcb;
@@ -161,6 +190,12 @@ export default function Layout(props) {
               <Link href="/create">
                 <button className="primary">Create Podcast</button>
               </Link>
+              <button onClick={() => {
+                window.localStorage.removeItem("podcasterUserJWT")
+                router.push("/")
+              }}
+              className="tertiary"
+              >Logout</button>
             </>
             : <>
               <Link href="/login">
