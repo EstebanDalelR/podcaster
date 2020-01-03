@@ -40,14 +40,16 @@ export default function Layout(props) {
         footer{
           width: 100%;
           background-color: #060606;
-          align-items: center;
+          align-items: flex-end;
           color: black;
           display: flex;
           justify-content: space-between;
+          flex-direction: column;
         }
         footer > p{
           margin: 0;
-          width: 50%;
+          width: 70%;
+          text-align: right;
           color: white;
           text-shadow: none;
         }
