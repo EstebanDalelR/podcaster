@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import useUserJWT from "../hooks/useUserJWT"
 import { Router } from "next/router";
 import Nav from "./layout/nav";
+import Footer from "./layout/footer";
 
 export default function Layout(props) {
   useEffect(() =>
@@ -11,17 +12,10 @@ export default function Layout(props) {
     , [i18n.isInitialized])
   const { children } = props
 
-  let social = {
-    li: "https://www.linkedin.com/in/estebandalelr/",
-    gh: "https://github.com/estebandalelr",
-    tw: "https://twitter.com/estebandalelr",
-    fb: "https://facebook.com/estebandalelr"
-  }
-  let socialKeys = Object.keys(social)
+
   return (
     <div className="background">
-      <style jsx>{`
-            
+      <style jsx>{`  
         .background{
           background: #292929;
           overflow: hidden;
@@ -37,56 +31,12 @@ export default function Layout(props) {
           min-height: 90%;
           padding: 2%;
         }
-        footer{
-          width: 100%;
-          background-color: #060606;
-          align-items: flex-end;
-          color: black;
-          display: flex;
-          justify-content: space-between;
-          flex-direction: column;
-        }
-        footer > p{
-          margin: 0;
-          width: 70%;
-          text-align: right;
-          color: white;
-          text-shadow: none;
-        }
-        img{
-          width: 2em;
-          height: 2em;
-          margin: 0.5em;
-        }
-        .social{
-          width: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-        }
-
-        a> img{
-          filter: invert(100%);
-        }
-
         `}</style>
-     <Nav />
+      <Nav />
       <main className="container">
         {children}
       </main>
-      <footer>
-        <p>
-          Created by Esteban Dalel R
-          </p>
-        <div className="social">
-          {socialKeys.map((key, index) =>
-            <div key={index}>
-              <a href={social[key]} target="_blank" rel="noopener noreferrer">
-                <img src={`/icons/${key}.svg`} alt="social icon" />
-              </a>
-            </div>)}
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
