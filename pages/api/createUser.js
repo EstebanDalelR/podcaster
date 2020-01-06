@@ -36,7 +36,7 @@ export default (req, res) => {
               }
             ],
             'dynamic_template_data': {
-              'receiverMail': records[0].fields.Email
+              'receiverId': records[0].id
             }
           }
         ],
