@@ -3,6 +3,7 @@
   "env": {
     "AIRTABLE_API_KEY": "@airtable-api-podcaster",
     "AIRTABLE_BASE_ID": "@airtable-base-podcaster",
-    "JWT_SIGNING_SECRET": "@jwt-signing-podcaster"
+    "JWT_SIGNING_SECRET": "@jwt-signing-podcaster",
+    "SENDGRID_API_KEY": "@sendgrid"
   }
 }
