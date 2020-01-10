@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+import Link from "next/link"
+=======
 import i18n from "../i18n"
 import { useEffect } from 'react';
+>>>>>>> master
 
 import useUserJWT from "../hooks/useUserJWT"
 import { Router } from "next/router";
@@ -7,9 +11,7 @@ import Nav from "./layout/nav";
 import Footer from "./layout/footer";
 
 export default function Layout(props) {
-  useEffect(() =>
-    console.log("i18n")
-    , [i18n.isInitialized])
+
   const { children } = props
 
 

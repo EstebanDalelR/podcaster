@@ -30,7 +30,8 @@
     "airtable": "^0.8.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
-    "i18next": "^19.0.2",
+    "draft-js": "^0.11.3",
+    "i18next": "^19.0.1",
     "i18next-browser-languagedetector": "^4.0.1",
     "i18next-xhr-backend": "^3.2.2",
     "jsonwebtoken": "^8.5.1",
@@ -38,7 +39,8 @@
     "next-offline": "^4.0.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-i18next": "^11.2.7"
+    "react-i18next": "^11.2.5",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@testing-library/dom": "^6.11.0",
