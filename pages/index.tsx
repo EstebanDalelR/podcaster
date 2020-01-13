@@ -45,15 +45,66 @@ const Index = () => {
           padding-block: 1em;
           border-radius: 4px;
         }
+        .homeBanner{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+        }
+        .bannerimg{
+          grid-column: 1 / span 2;
+          grid-row: 1 / span 2;
+          filter: blur(2px) grayscale(60%);
+          z-index: 1;
+          margin-top: -2%;
+          margin-left: -2%;
+          width: 120%;
+        }
+        .bannerCard{
+          display: grid;
+          background-color: #181818;
+          grid-column: 2/ span 2;
+          grid-row: 1 / span 2;
+          z-index: 2;
+          width: 65%;
+          height: 25%;
+          margin: auto;
+          justify-items: center;
+          align-items: center;
+          padding-left: 2%;
+          padding-right: 2%;
+        }
+        .bannerTitle{
+          grid-column: 1/ span 2;
+          grid-row: 1 / span 2;
+        }
+        .bannerText{
+          grid-column: 1 / span 2;
+          grid-row: 2 / span 2;
+        }
       `}</style>
-
-      <h1>
-        Welcome to Podcaster
+      <section className="homeBanner">
+        <img
+          className="bannerimg"
+          src="/img/darkmic.jpg" />
+        <div className="bannerCard">
+          <h1 className="bannerTitle">
+            Welcome to Podcaster
         </h1>
-      <p>
-        Congrats on deciding to share your knowledge and opinions to the world.
-        We know a podcast might seem like a lot, from editing to publishing, but we're here to help.
+          <p className="bannerText">
+            Congrats on deciding to share your knowledge and opinions to the world.
+            We know a podcast might seem like a lot, from editing to publishing, but we're here to help.
       </p>
+          <h2>Start now</h2>
+          {userJWT
+            ? <Link href="/create">
+              <button>Create Podcast</button>
+            </Link>
+            : <Link href="/signup">
+              <button>Create Account</button>
+            </Link>
+          }
+        </div>
+      </section>
       <section>
         <h2>How it works</h2>
         <p><span>Podscater</span> helps you plan your script, from your research to recording.</p>
