@@ -88,7 +88,7 @@ const Index = () => {
           src="/img/darkmic.jpg" />
         <div className="bannerCard">
           <h1 className="bannerTitle">
-            Welcome to Podcaster
+            Welcome to Shockmount
         </h1>
           <p className="bannerText">
             Congrats on deciding to share your knowledge and opinions to the world.
@@ -107,7 +107,7 @@ const Index = () => {
       </section>
       <section>
         <h2>How it works</h2>
-        <p><span>Podscater</span> helps you plan your script, from your research to recording.</p>
+        <p><span>Shockmount</span> helps you plan your script, from your research to recording.</p>
         <div className="benefitsHolder">
           {benefits.map((benefit, index) =>
             <BenefitsCard text={benefit.text} icon={benefit.icon} key={index} />
