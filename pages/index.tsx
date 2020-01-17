@@ -25,11 +25,87 @@ const Index = () => {
   return (
     <>
       <style jsx>{`
+        @media only screen 
+        and (max-device-width : 736px) {
+          .homeBanner{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            height: 100vh;
+          }
+          .benefitsHolder{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+          }
+          .bannerCard{
+            background-color: #181818;
+            z-index: 2;
+            width: 65%;
+            height: 50%;
+            justify-items: center;
+            align-items: center;
+            padding-left: 2%;
+            padding-right: 2%;
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+            margin: auto;
+          }
+          .bannerimg{
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 1;
+            filter: blur(2px) grayscale(60%);
+            z-index: 1;
+            margin-top: -2%;
+            margin-left: -2%;
+            height: 100vh;
+            overflow: hidden;
+          }
+          .cardCTA{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:center;
+          }
+        }
+        @media only screen 
+        and (min-device-width : 736px) {  
+          .homeBanner{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+          }
         .benefitsHolder{
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(2, 1fr);
         }
+        .bannerCard{
+          grid-column: 2/ span 2;
+          grid-row: 1 / span 2;
+        }
+        .bannerimg{
+          grid-column: 1 / span 2;
+          grid-row: 1 / span 2;
+          filter: blur(2px) grayscale(60%);
+          z-index: 1;
+          margin-top: -2%;
+          margin-left: -2%;
+          width: 120%;
+        }
+        .bannerCard{
+          display: grid;
+          background-color: #181818;
+          z-index: 2;
+          width: 65%;
+          height: 25%;
+          margin: auto;
+          justify-items: center;
+          align-items: center;
+          padding-left: 2%;
+          padding-right: 2%;
+        }
+      }
         .callToAction{
           display: flex;
           align-items: center;
@@ -44,34 +120,6 @@ const Index = () => {
           padding-right: 2%;
           padding-block: 1em;
           border-radius: 4px;
-        }
-        .homeBanner{
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: repeat(2, 1fr);
-        }
-        .bannerimg{
-          grid-column: 1 / span 2;
-          grid-row: 1 / span 2;
-          filter: blur(2px) grayscale(60%);
-          z-index: 1;
-          margin-top: -2%;
-          margin-left: -2%;
-          width: 120%;
-        }
-        .bannerCard{
-          display: grid;
-          background-color: #181818;
-          grid-column: 2/ span 2;
-          grid-row: 1 / span 2;
-          z-index: 2;
-          width: 65%;
-          height: 25%;
-          margin: auto;
-          justify-items: center;
-          align-items: center;
-          padding-left: 2%;
-          padding-right: 2%;
         }
         .bannerTitle{
           grid-column: 1/ span 2;
@@ -94,6 +142,8 @@ const Index = () => {
             Congrats on deciding to share your knowledge and opinions to the world.
             We know a podcast might seem like a lot, from editing to publishing, but we're here to help.
       </p>
+      <div className="cardCTA">
+
           <h2>Start now</h2>
           {userJWT
             ? <Link href="/create">
@@ -103,6 +153,7 @@ const Index = () => {
               <button>Create Account</button>
             </Link>
           }
+          </div>
         </div>
       </section>
       <section>
