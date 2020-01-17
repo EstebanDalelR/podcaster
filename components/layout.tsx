@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import Link from "next/link"
-=======
-import i18n from "../i18n"
-import { useEffect } from 'react';
->>>>>>> master
 
 import useUserJWT from "../hooks/useUserJWT"
 import { Router } from "next/router";

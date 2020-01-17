@@ -24,11 +24,11 @@ export default class MyApp extends App {
            margin: 0px;
         }
         h1, h2, h3, h4, h5, h6{
-          color: #181818;
+          color: #fafafa;
           font-family: 'Copse', sans-serif;
         }
         p, ul, ol, button{
-          color: #181818;
+          color: #fafafa;
           font-family: "Rubik";
         }
         `}</style>

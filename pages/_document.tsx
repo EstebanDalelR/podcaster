@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
     <Html>
       <Head>
         <html lang="en-US" />
-        <title>Podcaster🎤</title>
+        <title>Shockmount🎤</title>
         <meta name="author" content="Esteban Dalel R"></meta>
         <meta name="description" content="A Podcast planner"></meta>
         <meta charSet='utf-8' />

@@ -106,6 +106,7 @@ export default function Nav() {
               background-color: #181818;
               justify-content: space-between;
               align-items: center;
+              z-index: 99;
             }
     
           .links{
