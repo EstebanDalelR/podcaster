@@ -1,6 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import Layout from '../components/layout'
+import Head from 'next/head'
 
 export default class MyApp extends App {
 
@@ -32,6 +33,13 @@ export default class MyApp extends App {
           font-family: "Rubik";
         }
         `}</style>
+        <Head>
+          <title>Shockmount | Plan your podcasts</title>
+          <link rel='manifest' href='/manifest.json'></link>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
+
         <Layout>
           <Component {...pageProps} />
         </Layout>
